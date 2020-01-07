@@ -387,8 +387,19 @@ Jl. Kamboja 33 Halim Perdana Kusuma Jakarta Timur</li>
 							<textarea class="form-control" id="message" rows="7" placeholder="الرسالة"></textarea>
 						</div>
 						<div class="form-group">
-							<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="ارسل الرسالة"> 
-						</div>
+							<a type="submit" id="btn-submit"   class="btn btn-send-message btn-md"> ارسل رسالة </a>
+
+						</div> 
+						<script>
+						function msg () {
+							var msg =  document.getElementById("message").value;
+							var url = "mailto:baselfawzy566@hotmail.com?body=" + encodeURIComponent(msg);
+
+							document.getElementById("btn-submit").href = url;
+						}
+						msg();
+						</script>
+
 					</form>
 				</div>
 			</div>
