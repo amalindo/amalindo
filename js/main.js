@@ -601,6 +601,7 @@
 		}
 	};
 
+	
 
 	// Document on load.
 	$(function(){
@@ -628,5 +629,14 @@
 
 	});
 
+
+
+	$(document).ready(function(){
+		$('#myTable').dataTable();
+		});
+	
+		
+	
+	
 
 }());
