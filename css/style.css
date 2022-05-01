@@ -1217,7 +1217,7 @@ h1, h2, h3, h4, h5, h6 {
 /* 
 adding logo */
 
-#logo  h1 {
+/* #logo  h1 {
   float: left;
   width: 50px;
   height: 50px;
@@ -1228,4 +1228,4 @@ adding logo */
   position: relative;
   top: 15px;
   left: 10px;
-}
+} */
