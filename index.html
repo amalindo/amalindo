@@ -70,6 +70,22 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-155868916-2');
 		</script>
+	<!-- Event snippet for whatsapp contact conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 
 	</head>
 	<body>
@@ -126,8 +142,7 @@
     متخصصون في العماله الفنيه وعماله القطاع الطبي اطباء وتمريض وعماله الفنادق والمطاعم وجميع انواع العماله المتخصصه و كذلك أعطاء دورات تدريبية فى التخصصات و العادات و لتقاليد و اللغة العربية<br> 
     للتواصل معنا عن طريق الإيميل <a href="mailto:baselfawzy566@hotmail.com" target="_blank" title="mbaselfawzy566@hotmail.com" class="fh5co-link">baselfawzy566@hotmail.com</a>
     <br>
-    واتس أب <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85+%D8%A3%D9%86%D8%A7+%D9%85%D9%87%D8%AA%D9%85+%D8%A7%D8%B9%D8%B1%D9%81+%D8%A7%D9%83%D8%AA%D8%B1+%D8%B9%D9%86+%D8%A7%D9%84%D8%B9%D9%85%D8%A7%D9%84%D8%A9+%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9&type=phone_number&app_absent=0" target="_blank" title="WhatsApp Link" class="fh5co-link"><img src="whatsapp.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 10px;">62818962223</a>
-</h2>
+    واتس أب <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=سلام+عليكم+أنا+مهتم+اعرف+اكتر+عن+العمالة+المتاحة&type=phone_number&app_absent=0" onclick="return gtag_report_conversion('https://api.whatsapp.com/send/?phone=+62818962223');" target="_blank" title="WhatsApp Link" class="fh5co-link"><img src="whatsapp.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 10px;">62818962223</a>
 
 						</div>
 					</div>
