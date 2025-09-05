@@ -1,0 +1,116 @@
+/* MOBILE-FIRST IMPROVEMENTS */
+
+/* Hero section mobile optimization */
+#fh5co-home h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    line-height: 1.2;
+}
+
+#fh5co-home h2 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.4;
+}
+
+/* Navigation improvements */
+.navbar-brand {
+    font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+}
+
+/* Gallery improvements */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Table responsive improvements */
+.table-responsive {
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .table-responsive table,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+    
+    .table-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .table-responsive tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    
+    .table-responsive td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right !important;
+    }
+    
+    .table-responsive td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #07ad87;
+    }
+}
+
+/* Contact form improvements */
+.contact-form .form-control {
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: #07ad87;
+    outline: none;
+    box-shadow: 0 0 5px rgba(7, 173, 135, 0.3);
+}
+
+/* WhatsApp button improvements */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #25D366;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    color: white !important;
+}
+
+.whatsapp-btn img {
+    margin-left: 8px;
+    width: 20px;
+    height: 20px;
+}
