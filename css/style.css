@@ -74,17 +74,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-header #navbar .navbar-right {
   margin-right: 0;
+   margin-top: 15px;
 }
 @media screen and (max-width: 992px) {
   #fh5co-header #navbar .navbar-right {
     margin-right: -15px;
+    margin-top: 15px;
   }
 }
 #fh5co-header #navbar li a {
   font-family: "PT Sans", Arial, serif;
   color: rgba(0, 0, 0, 0.5);
   position: relative;
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 400;
 }
 @media screen and (max-width: 992px) {
@@ -96,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header #navbar li a span {
   position: relative;
   display: block;
-  padding-bottom: 2px;
+  padding-bottom: 8px;
 }
 #fh5co-header #navbar li a span:before {
   content: "";

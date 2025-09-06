@@ -1,5 +1,5 @@
 // Configuration and data for the table
-const tableData = [
+var tableData = [
     {
         place: "  المدينة المنورة",
         name: " فندق مبارك الماسى محمد إبراهيم إسماعيل ",
