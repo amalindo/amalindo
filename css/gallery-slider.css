@@ -1,6 +1,6 @@
 /* Gallery Slider Styles */
 .slideshow-container {
-    max-width: 800px;
+    max-width: 1000px;
     position: relative;
     margin: auto;
     background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
