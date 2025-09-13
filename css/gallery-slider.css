@@ -1,4 +1,4 @@
-/* Enhanced Slider Styles */
+/* Gallery Slider Styles */
 .slideshow-container {
     max-width: 800px;
     position: relative;
@@ -47,18 +47,18 @@
     100% { transform: rotate(360deg); }
 }
 
-.simple-slide {
+.gallery-slide {
     display: none;
     width: 100%;
     animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
 }
 
-.simple-slide.active {
+.gallery-slide.active {
     display: block;
 }
 
-.simple-slide img {
+.gallery-slide img {
     width: 100%;
     height: auto;
     max-height: 450px;
@@ -68,7 +68,7 @@
     transition: filter 0.3s ease;
 }
 
-.simple-slide::after {
+.gallery-slide::after {
     content: '';
     position: absolute;
     top: 0;
@@ -84,7 +84,7 @@
 }
 
 /* Enhanced Navigation Buttons */
-.simple-prev, .simple-next {
+.gallery-prev, .gallery-next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -110,15 +110,15 @@
     opacity: 0.8;
 }
 
-.simple-prev {
+.gallery-prev {
     left: 20px;
 }
 
-.simple-next {
+.gallery-next {
     right: 20px;
 }
 
-.simple-prev:hover, .simple-next:hover {
+.gallery-prev:hover, .gallery-next:hover {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.4));
     transform: translateY(-50%) scale(1.1);
     opacity: 1;
@@ -127,12 +127,12 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.simple-prev:active, .simple-next:active {
+.gallery-prev:active, .gallery-next:active {
     transform: translateY(-50%) scale(0.95);
 }
 
 /* Enhanced Dots */
-.simple-dots {
+.gallery-dots {
     text-align: center;
     margin: 25px auto 0;
     padding: 12px 18px;
@@ -150,7 +150,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.simple-dot {
+.gallery-dot {
     cursor: pointer;
     height: 10px;
     width: 10px;
@@ -166,7 +166,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.simple-dot:hover {
+.gallery-dot:hover {
     background: linear-gradient(135deg, rgba(64, 224, 208, 0.7), rgba(32, 178, 170, 0.9));
     transform: scale(1.3);
     border-color: rgba(64, 224, 208, 0.8);
@@ -176,7 +176,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.simple-dot.active {
+.gallery-dot.active {
     background: linear-gradient(135deg, #40E0D0, #20B2AA);
     transform: scale(1.4);
     border-color: rgba(255, 255, 255, 0.8);
@@ -187,7 +187,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.simple-dot.active::before {
+.gallery-dot.active::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -200,7 +200,7 @@
     box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
-.simple-dot.active::after {
+.gallery-dot.active::after {
     content: '';
     position: absolute;
     top: -4px;
@@ -253,90 +253,90 @@
         border-radius: 12px;
     }
     
-    .simple-prev, .simple-next {
+    .gallery-prev, .gallery-next {
         width: 45px;
         height: 45px;
         font-size: 18px;
         transform: translateY(-50%);
     }
     
-    .simple-prev {
+    .gallery-prev {
         left: 15px;
     }
     
-    .simple-next {
+    .gallery-next {
         right: 15px;
     }
     
-    .simple-prev:hover, .simple-next:hover {
+    .gallery-prev:hover, .gallery-next:hover {
         transform: translateY(-50%) scale(1.1);
     }
     
-    .simple-prev:active, .simple-next:active {
+    .gallery-prev:active, .gallery-next:active {
         transform: translateY(-50%) scale(0.95);
     }
     
-    .simple-slide img {
+    .gallery-slide img {
         max-height: 350px;
     }
     
-    .simple-dots {
+    .gallery-dots {
         margin: 20px auto 0;
         padding: 12px 16px;
         max-width: 95%;
     }
     
-    .simple-dot {
+    .gallery-dot {
         height: 9px;
         width: 9px;
         margin: 0 4px;
         border-width: 1.5px;
     }
     
-    .simple-dot:hover {
+    .gallery-dot:hover {
         transform: scale(1.25);
     }
     
-    .simple-dot.active {
+    .gallery-dot.active {
         transform: scale(1.3);
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .simple-prev, .simple-next {
+    .gallery-prev, .gallery-next {
         width: 40px;
         height: 40px;
         font-size: 16px;
         transform: translateY(-50%);
     }
     
-    .simple-prev {
+    .gallery-prev {
         left: 10px;
     }
     
-    .simple-next {
+    .gallery-next {
         right: 10px;
     }
     
-    .simple-prev:hover, .simple-next:hover {
+    .gallery-prev:hover, .gallery-next:hover {
         transform: translateY(-50%) scale(1.1);
     }
     
-    .simple-prev:active, .simple-next:active {
+    .gallery-prev:active, .gallery-next:active {
         transform: translateY(-50%) scale(0.95);
     }
     
-    .simple-slide img {
+    .gallery-slide img {
         max-height: 280px;
     }
     
-    .simple-dots {
+    .gallery-dots {
         margin: 15px auto 0;
         padding: 10px 14px;
         max-width: 98%;
     }
     
-    .simple-dot {
+    .gallery-dot {
         height: 8px;
         width: 8px;
         margin: 0 3px;

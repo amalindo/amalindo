@@ -1,5 +1,5 @@
 // Simple, reliable image slider
-class SimpleSlider {
+class GallerySlider {
     constructor(containerId, images) {
         this.container = document.getElementById(containerId);
         this.images = images;
@@ -18,7 +18,7 @@ class SimpleSlider {
         this.createSliderHTML();
         this.showSlide(0);
         this.startAutoSlide();
-        console.log('Simple Slider initialized with', this.images.length, 'images');
+        console.log('Gallery Slider initialized with', this.images.length, 'images');
     }
     
     createSliderHTML() {
@@ -28,19 +28,19 @@ class SimpleSlider {
         // Create slides
         this.images.forEach((image, index) => {
             const slide = document.createElement('div');
-            slide.className = 'simple-slide';
+            slide.className = 'gallery-slide';
             slide.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
             this.container.appendChild(slide);
         });
         
         // Create navigation
         const prevBtn = document.createElement('button');
-        prevBtn.className = 'simple-prev';
+        prevBtn.className = 'gallery-prev';
         prevBtn.innerHTML = '&#10094;';
         prevBtn.onclick = () => this.prevSlide();
         
         const nextBtn = document.createElement('button');
-        nextBtn.className = 'simple-next';
+        nextBtn.className = 'gallery-next';
         nextBtn.innerHTML = '&#10095;';
         nextBtn.onclick = () => this.nextSlide();
         
@@ -53,11 +53,11 @@ class SimpleSlider {
         dotsWrapper.style.width = '100%';
         
         const dotsContainer = document.createElement('div');
-        dotsContainer.className = 'simple-dots';
+        dotsContainer.className = 'gallery-dots';
         
         this.images.forEach((_, index) => {
             const dot = document.createElement('span');
-            dot.className = 'simple-dot';
+            dot.className = 'gallery-dot';
             dot.onclick = () => this.showSlide(index);
             dotsContainer.appendChild(dot);
         });
@@ -69,8 +69,8 @@ class SimpleSlider {
     showSlide(index) {
         if (this.isTransitioning) return;
         
-        const slides = this.container.querySelectorAll('.simple-slide');
-        const dots = document.querySelectorAll('.simple-dot');
+        const slides = this.container.querySelectorAll('.gallery-slide');
+        const dots = document.querySelectorAll('.gallery-dot');
         
         // Handle wrap around
         if (index >= slides.length) index = 0;
@@ -120,7 +120,7 @@ function triggerGalleryAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     // Use the existing gallery data
     if (typeof gallerySlides !== 'undefined') {
-        new SimpleSlider('slideshow-container', gallerySlides);
+        new GallerySlider('slideshow-container', gallerySlides);
     } else {
         console.error('Gallery slides data not found');
     }
