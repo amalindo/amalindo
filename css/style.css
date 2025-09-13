@@ -24,13 +24,13 @@ body {
 }
 
 a {
-  color: #ff3b30;
+  color: #07ad87;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #ff3b30;
+  color: #07ad87;
   outline: none;
 }
 
@@ -74,17 +74,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-header #navbar .navbar-right {
   margin-right: 0;
+   margin-top: 15px;
 }
 @media screen and (max-width: 992px) {
   #fh5co-header #navbar .navbar-right {
     margin-right: -15px;
+    margin-top: 15px;
   }
 }
 #fh5co-header #navbar li a {
   font-family: "PT Sans", Arial, serif;
   color: rgba(0, 0, 0, 0.5);
   position: relative;
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 400;
 }
 @media screen and (max-width: 992px) {
@@ -96,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 #fh5co-header #navbar li a span {
   position: relative;
   display: block;
-  padding-bottom: 2px;
+  padding-bottom: 8px;
 }
 #fh5co-header #navbar li a span:before {
   content: "";
@@ -135,14 +137,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 480px) {
   #fh5co-header #navbar li.active a {
-    color: #ff3b30;
+    color: #07ad87;
   }
 }
 #fh5co-header #navbar li.active a span:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-  background-color: #ff3b30;
+  background-color: #07ad87;
 }
 @media screen and (max-width: 480px) {
   #fh5co-header #navbar li.active a span:before {
@@ -150,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #fh5co-header #navbar li.call-to-action a {
-  border: 2px solid #ff3b30;
+  border: 2px solid #07ad87;
   padding: 5px 10px 3px 10px;
   margin: 12px 0 0 0px;
   -webkit-border-radius: 30px;
@@ -159,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 30px;
 }
 #fh5co-header #navbar li.call-to-action a:hover {
-  background-color: #ff3b30;
+  background-color: #07ad87;
   color: #fff;
 }
 #fh5co-header #navbar li.call-to-action a span:before {
@@ -176,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 3px;
 }
 #fh5co-header .navbar-brand > span {
-  color: #ff3b30;
+  color: #07ad87;
 }
 @media screen and (max-width: 992px) {
   #fh5co-header .navbar-brand {
@@ -204,21 +206,21 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 #fh5co-header.navbar-fixed-top #navbar li a:hover {
-  color: #ff3b30;
+  color: #07ad87;
 }
 #fh5co-header.navbar-fixed-top #navbar li.active a {
-  color: #ff3b30 !important;
+  color: #07ad87 !important;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header.navbar-fixed-top #navbar li.active a {
-    color: #ff3b30 !important;
+    color: #07ad87 !important;
   }
 }
 #fh5co-header.navbar-fixed-top #navbar li.active a span:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-  background-color: #ff3b30;
+  background-color: #07ad87;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header.navbar-fixed-top #navbar li.active a span:before {
@@ -226,7 +228,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #fh5co-header.navbar-fixed-top #navbar li.call-to-action a {
-  border: 2px solid #ff3b30;
+  border: 2px solid #07ad87;
   padding: 5px 10px 3px 10px;
   margin: 12px 0 0 0px;
   -webkit-border-radius: 30px;
@@ -235,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 30px;
 }
 #fh5co-header.navbar-fixed-top #navbar li.call-to-action a:hover {
-  background-color: #ff3b30;
+  background-color: #07ad87;
   color: #fff !important;
 }
 #fh5co-header.navbar-fixed-top #navbar li.call-to-action a span:before {
@@ -266,7 +268,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #adadad;
 }
 #fh5co-header .navbar-default .brand-slogan em {
-  color: #ff3b30;
+  color: #07ad87;
   font-style: normal;
 }
 
@@ -357,8 +359,8 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.2);
 }
 #fh5co-home .text-inner .call-to-action a.download {
-  border: 2px solid #ff3b30;
-  background: #ff3b30;
+  border: 2px solid #07ad87;
+  background: #07ad87;
   text-decoration: none !important;
 }
 
@@ -585,7 +587,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 2px 10px -1px rgba(0, 0, 0, 0.19);
 }
 .fh5co-pricing .price-box.popular .btn-select-plan {
-  background: #ff3b30;
+  background: #07ad87;
 }
 .fh5co-pricing .price-box .btn-select-plan {
   padding: 10px 20px;
@@ -727,7 +729,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-team .team-box .social-media li a:hover, #fh5co-team .team-box .social-media li a:focus, #fh5co-team .team-box .social-media li a:active {
   text-decoration: none;
-  color: #ff3b30 !important;
+  color: #07ad87 !important;
 }
 
 .box-faq {
@@ -926,7 +928,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #fh5co-footer #btn-submit {
   color: rgba(255, 255, 255, 0.9) !important;
-  background: #ff3b30 !important;
+  background: #07ad87 !important;
 }
 
 .btn {
@@ -942,7 +944,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 .fh5co-nav-toggle.active i::before, .fh5co-nav-toggle.active i::after {
-  background: #ff3b30;
+  background: #07ad87;
 }
 .fh5co-nav-toggle:hover, .fh5co-nav-toggle:focus, .fh5co-nav-toggle:active {
   outline: none;
@@ -1040,14 +1042,14 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 .btn.btn-primary {
-  background: #ff3b30;
+  background: #07ad87;
   color: #fff;
   border: none !important;
   border: 2px solid transparent !important;
 }
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
   box-shadow: none;
-  background: #ff3b30;
+  background: #07ad87;
 }
 .btn:hover, .btn:active, .btn:focus {
   background: #393e46 !important;
@@ -1087,11 +1089,11 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: none;
 }
 .social li a.social-box {
-  background: #ff3b30;
+  background: #07ad87;
   color: #fff;
 }
 .social li a.social-circle {
-  background: #ff3b30;
+  background: #07ad87;
   color: #fff;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1102,11 +1104,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #393e46 !important;
 }
 .social.social-box a {
-  background: #ff3b30;
+  background: #07ad87;
   color: #fff;
 }
 .social.social-circle a {
-  background: #ff3b30;
+  background: #07ad87;
   color: #fff;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1208,7 +1210,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .owl-carousel .owl-controls .owl-dot.active span {
   background: transparent;
-  border: 2px solid #ff3b30;
+  border: 2px solid #07ad87;
 }
 
 /*# sourceMappingURL=style.css.map */

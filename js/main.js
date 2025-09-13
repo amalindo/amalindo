@@ -629,14 +629,45 @@
 
 	});
 
-
-
+	// Initialize DataTables
 	$(document).ready(function(){
-		$('#myTable').dataTable();
+		$('#myTable').DataTable({
+			"data": tableData,              // Use the data from table-config.js
+			"columns": [                    // Define columns
+				{ 
+					"data": "place",
+					"className": "text-right"
+				},
+				{ 
+					"data": "name",
+					"className": "text-right"
+				},
+				{ 
+					"data": "type",
+					"className": "text-right"
+				}
+			],
+			"pageLength": 10,              // Show 10 entries per page
+			"lengthMenu": [10, 25, 50],    // Options for number of entries to show
+			"ordering": true,              // Enable sorting
+			"order": [[0, 'asc']],         // Default sort by first column ascending
+			"language": {
+				"search": "بحث:",
+				"lengthMenu": "عرض _MENU_ سجلات في الصفحة",
+				"info": "عرض _START_ إلى _END_ من _TOTAL_ سجل",
+				"infoEmpty": "لا توجد سجلات متاحة",
+				"infoFiltered": "(تمت التصفية من _MAX_ سجل)",
+				"zeroRecords": "لم يتم العثور على سجلات مطابقة",
+				"paginate": {
+					"first": "الأول",
+					"last": "الأخير",
+					"next": "التالي",
+					"previous": "السابق"
+				}
+			},
+			"dom": '<"top"lf>rt<"bottom"ip>', // Custom layout
+			"responsive": true,               // Make table responsive
+			"autoWidth": false                // Better column width handling
 		});
-	
-		
-	
-	
-
+	});
 }());
