@@ -1,0 +1,12 @@
+User-agent: *
+Disallow:
+
+# Optional: allow crawling of common asset folders (usually allowed by default)
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /img/
+Allow: /fonts/
+
+# Sitemap location
+Sitemap: https://amalindolanggeng.net/sitemap.xml
