@@ -1,13 +1,20 @@
-// Simple, reliable image slider
+// Simple, reliable image slider with RTL support
 class GallerySlider {
     constructor(containerId, images) {
         this.container = document.getElementById(containerId);
         this.images = images;
         this.currentIndex = 0;
         this.isTransitioning = false;
+        this.isPaused = false;
+        this.autoSlideInterval = null;
         
         if (!this.container) {
-            console.error('Slider container not found:', containerId);
+            console.warn('Slider container not found:', containerId);
+            return;
+        }
+        
+        if (!this.images || this.images.length === 0) {
+            console.warn('No images provided for slider');
             return;
         }
         
@@ -18,7 +25,8 @@ class GallerySlider {
         this.createSliderHTML();
         this.showSlide(0);
         this.startAutoSlide();
-        console.log('Gallery Slider initialized with', this.images.length, 'images');
+        this.addKeyboardNavigation();
+        this.addHoverPause();
     }
     
     createSliderHTML() {
@@ -85,7 +93,6 @@ class GallerySlider {
         dots[index].classList.add('active');
         
         this.currentIndex = index;
-        console.log(`Showing slide ${index + 1}/${slides.length}`);
     }
     
     nextSlide() {
@@ -97,9 +104,49 @@ class GallerySlider {
     }
     
     startAutoSlide() {
-        setInterval(() => {
-            this.nextSlide();
-        }, 3000); // 3 seconds
+        this.autoSlideInterval = setInterval(() => {
+            if (!this.isPaused) {
+                this.nextSlide();
+            }
+        }, 4000); // 4 seconds
+    }
+    
+    pauseAutoSlide() {
+        this.isPaused = true;
+    }
+    
+    resumeAutoSlide() {
+        this.isPaused = false;
+    }
+    
+    addKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            // Only handle if gallery is in view
+            const gallerySection = document.getElementById('gallery');
+            if (!gallerySection) return;
+            
+            const rect = gallerySection.getBoundingClientRect();
+            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isInView) {
+                if (e.key === 'ArrowLeft') {
+                    this.nextSlide(); // RTL: left arrow goes next
+                } else if (e.key === 'ArrowRight') {
+                    this.prevSlide(); // RTL: right arrow goes prev
+                }
+            }
+        });
+    }
+    
+    addHoverPause() {
+        this.container.addEventListener('mouseenter', () => this.pauseAutoSlide());
+        this.container.addEventListener('mouseleave', () => this.resumeAutoSlide());
+        
+        // Touch support
+        this.container.addEventListener('touchstart', () => this.pauseAutoSlide(), { passive: true });
+        this.container.addEventListener('touchend', () => {
+            setTimeout(() => this.resumeAutoSlide(), 2000);
+        }, { passive: true });
     }
 }
 
@@ -122,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof gallerySlides !== 'undefined') {
         new GallerySlider('slideshow-container', gallerySlides);
     } else {
-        console.error('Gallery slides data not found');
+        console.warn('Gallery slides data not found - gallery will not be initialized');
     }
     
     // Trigger gallery animations after a short delay

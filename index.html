@@ -1,55 +1,5 @@
 <!DOCTYPE html>
-
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v01pdw8sw8");
-</script>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!-- Google tag (gtag.js) --> 
-<!-- Global site tag (gtag.js) - Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-866647301"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-866647301');
-</script>
-
-<script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof url != 'undefined') {
-        // افتح الرابط (لو عايز في نفس التاب)
-        window.location.href = url;
-      }
-    };
-
-    // لو gtag موجودة ابعت event، لو مش موجودة افتح الرابط عادي
-    if (typeof gtag === 'function') {
-      try {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
-          'event_callback': callback
-        });
-      } catch (e) {
-        // في حالة أي Error، برضه افتح الرابط
-        callback();
-      }
-    } else {
-      callback();
-    }
-
-    // امنع السلوك الافتراضي للـ <a> واعتمد على callback
-    return false;
-  }
-</script>
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<html lang="ar" dir="rtl" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,6 +43,8 @@
     <link rel="stylesheet" href="css/jqueryboardtable.min.css">
     <!-- Custom DataTable CSS -->
     <link rel="stylesheet" href="css/components/datatable.css">
+    <!-- Improvements & RTL fixes -->
+    <link rel="stylesheet" href="css/improvements.css">
 
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
@@ -101,93 +53,291 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-155868916-2"></script>
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v01pdw8sw8");
+    </script>
+
+    <!-- Google Analytics & Ads (consolidated) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-866647301"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+        gtag('config', 'AW-866647301');
         gtag('config', 'UA-155868916-2');
+        
+        // Conversion tracking function
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof url !== 'undefined') {
+                    window.location.href = url;
+                }
+            };
+            
+            if (typeof gtag === 'function') {
+                try {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
+                        'event_callback': callback
+                    });
+                } catch (e) {
+                    callback();
+                }
+            } else {
+                callback();
+            }
+            return false;
+        }
     </script>
 
 </head>
 
 <body>
     <!-- Header -->
-<!-- Header -->
-<header role="banner" id="fh5co-header" dir="rtl">
+<header role="banner" id="fh5co-header" dir="rtl" style="background: #fff !important;">
   <div class="fluid-container">
-    <nav class="navbar navbar-default" style="direction: rtl; min-height: 100px; display: flex; align-items: center;">
+    <nav class="navbar navbar-default navbar-rtl" role="navigation" style="background: #fff !important;">
       
-      <!-- Logo & Name (stacked, right-aligned) -->
-      <div class="navbar-header" style="float: right; text-align: center; padding: 5px 20px;">
-        <!-- Mobile Toggle Menu Button -->
-        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" 
-           data-toggle="collapse" data-target="#navbar" 
-           aria-expanded="false" aria-controls="navbar"
-           style="position: absolute; left: 15px; top: 15px;">
-          <i></i>
-        </a>
-
+      <!-- Mobile Toggle Menu Button (LEFT side in RTL) -->
+      <button type="button" class="js-fh5co-nav-toggle fh5co-nav-toggle nav-toggle-btn" 
+         data-toggle="collapse" data-target="#navbar" 
+         aria-expanded="false" aria-controls="navbar"
+         aria-label="فتح القائمة">
+        <i></i>
+      </button>
+      
+      <!-- Logo & Name (RIGHT side in RTL) -->
+      <div class="navbar-header navbar-header-rtl">
         <div id="logo">
-          <img src="images/mainIcon.png" alt="logo" 
-               class="logo" style="width: 55px; height: 55px; display: block; margin: 0 auto;">
-          <h3 style="margin: 8px 0 0; font-size: 32px; font-weight: bold;">
-            <a href="index.html" 
-               style="color: #07ad87; text-decoration: none;">
-              شركة أمالندو لانقق
-            </a>
+          <img src="images/mainIcon.png" alt="شعار شركة أمالندو لانقق" class="logo logo-img" loading="eager">
+          <h3 class="logo-title">
+            <a href="index.html">شركة أمالندو لانقق</a>
           </h3>
         </div>
       </div>
-      <div id="navbar" class="navbar-collapse collapse" style="flex: 1; display: flex; align-items: center;">
-        <ul class="nav navbar-nav" 
-            style="display: flex; flex-direction: row-reverse; justify-content: flex-start; gap: 30px; margin: 0; width: 100%;">
-            
-          <li><a href="#" data-nav-section="contact" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">تواصل</a></li>
-          
-          <li><a href="#" data-nav-section="gallery" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">معرض الصور</a></li>
-          
-          <li><a href="#" data-nav-section="explore" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">معلومات عنا</a></li>
-          
-          <li class="active"><a href="#" data-nav-section="home" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px; color: #07ad87;">الرئيسية</a></li>
+      
+      <!-- Navigation Menu (LEFT side in RTL) -->
+      <div id="navbar" class="navbar-collapse collapse navbar-container">
+        <ul class="nav navbar-nav nav-menu-rtl">
+          <!-- Order: الرئيسية (Home) first on right, then others to left -->
+          <li class="active"><a href="#" data-nav-section="home">الرئيسية</a></li>
+          <li><a href="#" data-nav-section="services">خدماتنا</a></li>
+          <li><a href="#" data-nav-section="explore">من نحن</a></li>
+          <li><a href="#" data-nav-section="gallery">معرض الصور</a></li>
+          <li><a href="#" data-nav-section="partners">شركاؤنا</a></li>
+          <li><a href="#" data-nav-section="contact">تواصل</a></li>
         </ul>
       </div>
     </nav>
   </div>
 </header>
     <!-- Hero Section -->
-    <section id="fh5co-home" data-section="home" style="background-image: url(images/117-Employees.webp);">
-        <div class="gradient"></div>
+    <section id="fh5co-home" data-section="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles"></div>
         <div class="container">
             <div class="text-wrap">
                 <div class="text-inner">
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <h1 class="to-animate">شركة أمالندو لانقق لتوريد العمالة الفنية و العادية الإندونيسية إلى المملكة العربية السعودية و دول الخليج</h1>
-                            <h2 class="to-animate">
-                                متخصصون في العماله الفنيه وعماله القطاع الطبي اطباء وتمريض وعماله الفنادق والمطاعم وجميع انواع العماله المتخصصه و كذلك أعطاء دورات تدريبية فى التخصصات و العادات و لتقاليد و اللغة العربية<br> 
-                                للتواصل معنا عن طريق الإيميل <a href="mailto:baselfawzy566@hotmail.com" target="_blank" title="baselfawzy566@hotmail.com" class="fh5co-link">baselfawzy566@hotmail.com</a>
-                                <br>
-                                <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D9%86%D8%A7%20%D9%84%D8%B3%D8%AA%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%88%D8%A7%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D8%A7&type=phone_number&app_absent=0" onclick="return gtag_report_conversion(this.href)" target="_blank" title="WhatsApp Link" class="fh5co-link">
-                                  <img src="whatsapp.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 10px;">62818962223
+                        <div class="col-md-10 col-md-offset-1">
+                            <!-- Badge -->
+                            <div class="hero-badge to-animate">
+                                <i class="icon-check" aria-hidden="true"></i>
+                                <span>شريكك الموثوق منذ 2011</span>
+                            </div>
+                            
+                            <!-- Main Headline -->
+                            <h1 class="hero-title to-animate">
+                                توريد <span class="highlight">العمالة الإندونيسية</span> المؤهلة<br>
+                                إلى المملكة العربية السعودية ودول الخليج
+                            </h1>
+                            
+                            <!-- Subheadline -->
+                            <p class="hero-subtitle to-animate">
+                                نحن شركة <strong>أمالندو</strong> المتخصصة في استقدام الكوادر المهنية والفنية من إندونيسيا.
+                                نقدم عمالة مدربة في القطاع الطبي والفندقي والمطاعم وجميع التخصصات،
+                                مع برامج تأهيل شاملة في اللغة العربية والعادات والتقاليد.
+                            </p>
+                            
+                            <!-- Key Features -->
+                            <div class="hero-features to-animate">
+                                <div class="feature-item">
+                                    <i class="icon-people" aria-hidden="true"></i>
+                                    <span>عمالة مؤهلة ومدربة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="icon-graduation" aria-hidden="true"></i>
+                                    <span>دورات تدريبية متكاملة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="icon-badge" aria-hidden="true"></i>
+                                    <span>خبرة أكثر من 14 عام</span>
+                                </div>
+                            </div>
+                            
+                            <!-- CTA Buttons -->
+                            <div class="hero-cta to-animate">
+                                <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85" 
+                                   onclick="return gtag_report_conversion(this.href)" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="btn-hero btn-primary-hero">
+                                    <i class="icon-bubbles" aria-hidden="true"></i>
+                                    تواصل معنا الآن
                                 </a>
-                                <noscript>
-                                  <a href="https://api.whatsapp.com/send/?phone=62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D9%86%D8%A7%20%D9%84%D8%B3%D8%AA%20%D8%B9%D8%A7%D9%85%D9%84%20%D9%88%D8%A7%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D8%A7&type=phone_number&app_absent=0"
-   onclick="return gtag_report_conversion(this.href);"
-   target="_blank"
-   title="WhatsApp Link"
-   class="fh5co-link">
-  <img src="whatsapp.png" alt="WhatsApp" style="width: 24px; vertical-align: middle; margin-right: 10px;">
-  62818962223
-</a>
-                                </noscript>
-                            </h2>
+                                <a href="#partners" data-nav-section="partners" class="btn-hero btn-secondary-hero">
+                                    <i class="icon-list" aria-hidden="true"></i>
+                                    عرض شركائنا
+                                </a>
+                            </div>
+                            
+                            <!-- Contact Info -->
+                            <div class="hero-contact to-animate">
+                                <a href="tel:+62818962223" class="contact-item">
+                                    <i class="icon-phone" aria-hidden="true"></i>
+                                    <span dir="ltr">+62 818 962 223</span>
+                                </a>
+                                <a href="mailto:baselfawzy566@hotmail.com" class="contact-item">
+                                    <i class="icon-envelope" aria-hidden="true"></i>
+                                    <span>baselfawzy566@hotmail.com</span>
+                                </a>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>اكتشف المزيد</span>
+            <i class="icon-arrow-down" aria-hidden="true"></i>
+        </div>
+    </section>
+
+    <!-- Statistics Counter Section -->
+    <section id="fh5co-stats" class="stats-section" data-section="stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 text-center to-animate">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="icon-briefcase" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-number" id="stat-partners">0</div>
+                        <div class="stat-label">شريك وشركة</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center to-animate">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="icon-calendar" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-number" id="stat-years">0</div>
+                        <div class="stat-label">سنة خبرة</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center to-animate">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="icon-location-pin" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-number" id="stat-cities">0</div>
+                        <div class="stat-label">مدينة</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 text-center to-animate">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="icon-layers" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-number" id="stat-categories">0</div>
+                        <div class="stat-label">قطاع عمل</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Trust Badge -->
+            <div class="row">
+                <div class="col-md-12 text-center trust-badge to-animate">
+                    <div class="license-badge">
+                        <i class="icon-badge" aria-hidden="true"></i>
+                        <span>مرخصون من السفارة السعودية - رقم الترخيص: <strong>12</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="fh5co-services" class="services-section" data-section="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-heading text-center">
+                    <h2 class="to-animate">خدماتنا</h2>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                            <h3>نوفر عمالة متخصصة ومدربة لجميع القطاعات</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row services-grid">
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-home" aria-hidden="true"></i>
+                        </div>
+                        <h4>قطاع الفنادق</h4>
+                        <p>عمالة مدربة للعمل في الفنادق والشقق المفروشة</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-cup" aria-hidden="true"></i>
+                        </div>
+                        <h4>قطاع المطاعم</h4>
+                        <p>طباخين وباريستا ومقدمي طعام محترفين</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-heart" aria-hidden="true"></i>
+                        </div>
+                        <h4>القطاع الطبي</h4>
+                        <p>أطباء وممرضين وعاملين في المجال الصحي</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-wrench" aria-hidden="true"></i>
+                        </div>
+                        <h4>قطاع المقاولات</h4>
+                        <p>عمالة فنية مختبرة لشركات المقاولات</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-graduation" aria-hidden="true"></i>
+                        </div>
+                        <h4>التدريب والتأهيل</h4>
+                        <p>دورات تدريبية في اللغة والعادات والتقاليد</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 to-animate">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-people" aria-hidden="true"></i>
+                        </div>
+                        <h4>العمالة العامة</h4>
+                        <p>جميع أنواع العمالة الفنية والعادية</p>
                     </div>
                 </div>
             </div>
@@ -240,7 +390,20 @@
     <script src="js/gallery-slider.js"></script>
 
     <!-- Data Table Section -->
-    <div class="custom-table-container">
+    <section id="partners" data-section="partners" class="partners-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 section-heading text-center">
+                    <h2 class="to-animate">شركاؤنا</h2>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 subtext to-animate">
+                            <h3>قائمة بالشركات والمؤسسات التي نتعامل معها</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="custom-table-container">
         <table id="myTable" class="custom-datatable table table-striped table-bordered table-responsive table-hover" dir="rtl">
             <thead>
                 <tr>
@@ -253,7 +416,8 @@
                 <!-- DataTables will handle the data -->
             </tbody>
         </table>
-    </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <div id="fh5co-footer" role="contentinfo" data-section="contact">
@@ -274,31 +438,51 @@
                     </ul>
                     <h3 class="section-title">اتصل بنا</h3>
                     <ul class="social-media">
-                        <li><a href="https://www.facebook.com/amalindolanggeng/" class="facebook"><i class="icon-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com/amalindolanggeng/" class="instagram"><i class="icon-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/amalindolanggeng/" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك"><i class="icon-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/amalindolanggeng/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام"><i class="icon-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 
                 <div class="col-md-4 to-animate">
-                    <h3 class="section-title">اترك رسالة</h3>
-                    <form class="contact-form">
+                    <h3 class="section-title" id="contact-form-title">اترك رسالة</h3>
+                    <form class="contact-form" id="contactForm" aria-labelledby="contact-form-title" novalidate>
                         <div class="form-group">
-                            <input type="name" class="form-control" id="name" placeholder="الاسم">
+                            <label for="name" class="sr-only">الاسم</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="الاسم" required aria-required="true">
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="الإيميل">
+                            <label for="email" class="sr-only">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="الإيميل" required aria-required="true">
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" onchange="msg()" id="message" rows="7" placeholder="الرسالة"></textarea>
+                            <label for="message" class="sr-only">الرسالة</label>
+                            <textarea class="form-control" id="message" name="message" rows="7" placeholder="الرسالة" required aria-required="true"></textarea>
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <a type="submit" id="btn-submit" class="btn btn-send-message btn-md"> ارسل رسالة </a>
+                            <button type="submit" id="btn-submit" class="btn btn-send-message btn-md">ارسل رسالة</button>
                         </div> 
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+        <i class="icon-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85" 
+       class="floating-whatsapp" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="تواصل معنا عبر واتساب">
+        <img src="whatsapp.png" alt="واتساب">
+    </a>
 
     <!-- Scripts -->
     <!-- jQuery must load first as other scripts depend on it -->
@@ -321,5 +505,104 @@
     
     <!-- Initialize everything -->
     <script src="js/main.js"></script>
+    
+    <!-- Back to Top Script -->
+    <script>
+        // Back to Top Button
+        (function() {
+            var backToTop = document.getElementById('back-to-top');
+            if (!backToTop) return;
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+
+        // Statistics Counter Animation
+        (function() {
+            // Calculate stats from tableData
+            function calculateStats() {
+                if (typeof tableData === 'undefined' || !tableData.length) {
+                    return { partners: 0, years: 0, cities: 0, categories: 0 };
+                }
+                
+                var partners = tableData.length;
+                var currentYear = new Date().getFullYear();
+                var years = currentYear - 1980; // Founded in 1980
+                
+                // Get unique cities
+                var cities = [...new Set(tableData.map(function(item) {
+                    return item.place.trim();
+                }))].length;
+                
+                // Get unique categories
+                var categories = [...new Set(tableData.map(function(item) {
+                    return item.type.trim();
+                }))].length;
+                
+                return { partners: partners, years: years, cities: cities, categories: categories };
+            }
+            
+            // Animate counter
+            function animateCounter(element, target, duration) {
+                if (!element) return;
+                
+                var start = 0;
+                var startTime = null;
+                
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    var progress = Math.min((timestamp - startTime) / duration, 1);
+                    var current = Math.floor(progress * target);
+                    element.textContent = current.toLocaleString('ar-SA');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        element.textContent = target.toLocaleString('ar-SA');
+                    }
+                }
+                
+                requestAnimationFrame(step);
+            }
+            
+            // Check if element is in viewport
+            function isInViewport(element) {
+                var rect = element.getBoundingClientRect();
+                return rect.top < window.innerHeight && rect.bottom > 0;
+            }
+            
+            var hasAnimated = false;
+            
+            function triggerAnimation() {
+                var statsSection = document.getElementById('fh5co-stats');
+                if (!statsSection || hasAnimated) return;
+                
+                if (isInViewport(statsSection)) {
+                    hasAnimated = true;
+                    var stats = calculateStats();
+                    
+                    animateCounter(document.getElementById('stat-partners'), stats.partners, 2000);
+                    animateCounter(document.getElementById('stat-years'), stats.years, 2000);
+                    animateCounter(document.getElementById('stat-cities'), stats.cities, 1500);
+                    animateCounter(document.getElementById('stat-categories'), stats.categories, 1500);
+                }
+            }
+            
+            // Trigger on scroll and on load
+            window.addEventListener('scroll', triggerAnimation);
+            window.addEventListener('load', function() {
+                setTimeout(triggerAnimation, 500);
+            });
+        })();
+    </script>
 </body>
 </html>
