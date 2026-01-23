@@ -97,48 +97,33 @@
 
 <body>
     <!-- Header -->
-<!-- Header -->
 <header role="banner" id="fh5co-header" dir="rtl">
   <div class="fluid-container">
-    <nav class="navbar navbar-default" style="direction: rtl; min-height: 100px; display: flex; align-items: center;">
+    <nav class="navbar navbar-default navbar-rtl">
       
       <!-- Logo & Name (stacked, right-aligned) -->
-      <div class="navbar-header" style="float: right; text-align: center; padding: 5px 20px;">
+      <div class="navbar-header navbar-header-rtl">
         <!-- Mobile Toggle Menu Button -->
-        <button type="button" class="js-fh5co-nav-toggle fh5co-nav-toggle" 
+        <button type="button" class="js-fh5co-nav-toggle fh5co-nav-toggle nav-toggle-btn" 
            data-toggle="collapse" data-target="#navbar" 
            aria-expanded="false" aria-controls="navbar"
-           aria-label="فتح القائمة"
-           style="position: absolute; left: 15px; top: 15px; background: none; border: none; cursor: pointer;">
+           aria-label="فتح القائمة">
           <i></i>
         </button>
 
         <div id="logo">
-          <img src="images/mainIcon.png" alt="شعار شركة أمالندو لانقق" 
-               class="logo" style="width: 55px; height: 55px; display: block; margin: 0 auto;">
-          <h3 style="margin: 8px 0 0; font-size: 32px; font-weight: bold;">
-            <a href="index.html" 
-               style="color: #07ad87; text-decoration: none;">
-              شركة أمالندو لانقق
-            </a>
+          <img src="images/mainIcon.png" alt="شعار شركة أمالندو لانقق" class="logo logo-img">
+          <h3 class="logo-title">
+            <a href="index.html">شركة أمالندو لانقق</a>
           </h3>
         </div>
       </div>
-      <div id="navbar" class="navbar-collapse collapse" style="flex: 1; display: flex; align-items: center;">
-        <ul class="nav navbar-nav" 
-            style="display: flex; flex-direction: row-reverse; justify-content: flex-start; gap: 30px; margin: 0; width: 100%;">
-            
-          <li><a href="#" data-nav-section="contact" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">تواصل</a></li>
-          
-          <li><a href="#" data-nav-section="gallery" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">معرض الصور</a></li>
-          
-          <li><a href="#" data-nav-section="explore" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px;">معلومات عنا</a></li>
-          
-          <li class="active"><a href="#" data-nav-section="home" 
-                 style="font-size: 22px; font-weight: 600; padding: 20px 10px; color: #07ad87;">الرئيسية</a></li>
+      <div id="navbar" class="navbar-collapse collapse navbar-container">
+        <ul class="nav navbar-nav nav-menu-rtl">
+          <li><a href="#" data-nav-section="contact">تواصل</a></li>
+          <li><a href="#" data-nav-section="gallery">معرض الصور</a></li>
+          <li><a href="#" data-nav-section="explore">معلومات عنا</a></li>
+          <li class="active"><a href="#" data-nav-section="home">الرئيسية</a></li>
         </ul>
       </div>
     </nav>

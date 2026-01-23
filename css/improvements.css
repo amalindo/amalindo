@@ -53,6 +53,134 @@ button:focus {
 }
 
 /* ===========================================
+   RTL Navigation Layout
+   =========================================== */
+
+/* RTL Navbar */
+.navbar-rtl {
+    direction: rtl;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar Header RTL */
+.navbar-header-rtl {
+    float: right;
+    text-align: center;
+    padding: 5px 20px;
+}
+
+/* Mobile Toggle Button Styles */
+.nav-toggle-btn {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Logo Styles */
+.logo-img {
+    width: 55px;
+    height: 55px;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-title {
+    margin: 8px 0 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.logo-title a {
+    color: #07ad87;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo-title a:hover {
+    color: #059e7a;
+}
+
+/* Navbar Container */
+.navbar-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* RTL Navigation Menu */
+.nav-menu-rtl {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 30px;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu-rtl li a {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-menu-rtl li a:hover {
+    color: #07ad87;
+}
+
+.nav-menu-rtl li.active a {
+    color: #07ad87;
+}
+
+/* Mobile Navigation Styles */
+@media screen and (max-width: 768px) {
+    .navbar-rtl {
+        flex-direction: column;
+        min-height: auto;
+        padding: 10px 0;
+    }
+    
+    .navbar-header-rtl {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .navbar-container {
+        width: 100%;
+    }
+    
+    .nav-menu-rtl {
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+    }
+    
+    .nav-menu-rtl li a {
+        padding: 15px 10px;
+        font-size: 18px;
+    }
+    
+    .nav-toggle-btn {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .nav-toggle-btn {
+        display: none;
+    }
+}
+
+/* ===========================================
    Hero Section Mobile Optimization
    =========================================== */
 
