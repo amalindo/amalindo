@@ -105,15 +105,16 @@
       <!-- Logo & Name (stacked, right-aligned) -->
       <div class="navbar-header" style="float: right; text-align: center; padding: 5px 20px;">
         <!-- Mobile Toggle Menu Button -->
-        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" 
+        <button type="button" class="js-fh5co-nav-toggle fh5co-nav-toggle" 
            data-toggle="collapse" data-target="#navbar" 
            aria-expanded="false" aria-controls="navbar"
-           style="position: absolute; left: 15px; top: 15px;">
+           aria-label="فتح القائمة"
+           style="position: absolute; left: 15px; top: 15px; background: none; border: none; cursor: pointer;">
           <i></i>
-        </a>
+        </button>
 
         <div id="logo">
-          <img src="images/mainIcon.png" alt="logo" 
+          <img src="images/mainIcon.png" alt="شعار شركة أمالندو لانقق" 
                class="logo" style="width: 55px; height: 55px; display: block; margin: 0 auto;">
           <h3 style="margin: 8px 0 0; font-size: 32px; font-weight: bold;">
             <a href="index.html" 
@@ -257,25 +258,31 @@
                     </ul>
                     <h3 class="section-title">اتصل بنا</h3>
                     <ul class="social-media">
-                        <li><a href="https://www.facebook.com/amalindolanggeng/" class="facebook"><i class="icon-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com/amalindolanggeng/" class="instagram"><i class="icon-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/amalindolanggeng/" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك"><i class="icon-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/amalindolanggeng/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام"><i class="icon-instagram" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 
                 <div class="col-md-4 to-animate">
-                    <h3 class="section-title">اترك رسالة</h3>
-                    <form class="contact-form">
+                    <h3 class="section-title" id="contact-form-title">اترك رسالة</h3>
+                    <form class="contact-form" id="contactForm" aria-labelledby="contact-form-title" novalidate>
                         <div class="form-group">
-                            <input type="name" class="form-control" id="name" placeholder="الاسم">
+                            <label for="name" class="sr-only">الاسم</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="الاسم" required aria-required="true">
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="الإيميل">
+                            <label for="email" class="sr-only">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="الإيميل" required aria-required="true">
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" onchange="msg()" id="message" rows="7" placeholder="الرسالة"></textarea>
+                            <label for="message" class="sr-only">الرسالة</label>
+                            <textarea class="form-control" id="message" name="message" rows="7" placeholder="الرسالة" required aria-required="true"></textarea>
+                            <div class="form-feedback" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
-                            <a type="submit" id="btn-submit" class="btn btn-send-message btn-md"> ارسل رسالة </a>
+                            <button type="submit" id="btn-submit" class="btn btn-send-message btn-md">ارسل رسالة</button>
                         </div> 
                     </form>
                 </div>

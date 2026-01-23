@@ -1,5 +1,61 @@
 /* MOBILE-FIRST IMPROVEMENTS */
 
+/* ===========================================
+   Accessibility Styles
+   =========================================== */
+
+/* Screen reader only - visually hidden but accessible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Form validation feedback */
+.form-feedback {
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.form-feedback.error {
+    color: #dc3545;
+}
+
+.form-feedback.success {
+    color: #28a745;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.form-control.is-valid {
+    border-color: #28a745 !important;
+}
+
+/* Focus styles for accessibility */
+.form-control:focus {
+    outline: 2px solid #07ad87;
+    outline-offset: 2px;
+}
+
+a:focus,
+button:focus {
+    outline: 2px solid #07ad87;
+    outline-offset: 2px;
+}
+
+/* ===========================================
+   Hero Section Mobile Optimization
+   =========================================== */
+
 /* Hero section mobile optimization */
 #fh5co-home h1 {
     font-size: clamp(1.5rem, 4vw, 3rem);
