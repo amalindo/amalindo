@@ -1,55 +1,5 @@
 <!DOCTYPE html>
-
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "v01pdw8sw8");
-</script>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!-- Google tag (gtag.js) --> 
-<!-- Global site tag (gtag.js) - Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-866647301"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-866647301');
-</script>
-
-<script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof url != 'undefined') {
-        // افتح الرابط (لو عايز في نفس التاب)
-        window.location.href = url;
-      }
-    };
-
-    // لو gtag موجودة ابعت event، لو مش موجودة افتح الرابط عادي
-    if (typeof gtag === 'function') {
-      try {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
-          'event_callback': callback
-        });
-      } catch (e) {
-        // في حالة أي Error، برضه افتح الرابط
-        callback();
-      }
-    } else {
-      callback();
-    }
-
-    // امنع السلوك الافتراضي للـ <a> واعتمد على callback
-    return false;
-  }
-</script>
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<html lang="ar" dir="rtl" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -101,13 +51,46 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-155868916-2"></script>
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v01pdw8sw8");
+    </script>
+
+    <!-- Google Analytics & Ads (consolidated) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-866647301"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+        gtag('config', 'AW-866647301');
         gtag('config', 'UA-155868916-2');
+        
+        // Conversion tracking function
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof url !== 'undefined') {
+                    window.location.href = url;
+                }
+            };
+            
+            if (typeof gtag === 'function') {
+                try {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
+                        'event_callback': callback
+                    });
+                } catch (e) {
+                    callback();
+                }
+            } else {
+                callback();
+            }
+            return false;
+        }
     </script>
 
 </head>
