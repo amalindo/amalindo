@@ -29,15 +29,34 @@
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
 
 			event.preventDefault();
+			
+			var navbar = $('#navbar');
 
-			if ( $('#navbar').is(':visible') ) {
+			if ( navbar.hasClass('in') || navbar.hasClass('show') ) {
 				$(this).removeClass('active');
+				navbar.removeClass('in show');
+				navbar.attr('aria-expanded', 'false');
 			} else {
-				$(this).addClass('active');	
+				$(this).addClass('active');
+				navbar.addClass('in show');
+				navbar.attr('aria-expanded', 'true');
 			}
-
 			
+		});
+		
+		// Close menu when clicking outside
+		$(document).on('click', function(event) {
+			var navbar = $('#navbar');
+			var toggle = $('.js-fh5co-nav-toggle');
 			
+			if (navbar.hasClass('in') || navbar.hasClass('show')) {
+				if (!navbar.is(event.target) && navbar.has(event.target).length === 0 &&
+					!toggle.is(event.target) && toggle.has(event.target).length === 0) {
+					navbar.removeClass('in show');
+					toggle.removeClass('active');
+					navbar.attr('aria-expanded', 'false');
+				}
+			}
 		});
 
 	};
@@ -601,6 +620,99 @@
 		}
 	};
 
+	// Stats Section Animation with Counter
+	var statsAnimate = function() {
+		var stats = $('#fh5co-stats');
+		if ( stats.length > 0 ) {	
+
+			stats.waypoint( function( direction ) {
+										
+				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+
+					// Animate the to-animate elements (column wrappers)
+					setTimeout(function() {
+						stats.find('.to-animate').each(function( k ) {
+							var el = $(this);
+							
+							setTimeout ( function () {
+								el.addClass('fadeInUp animated');
+							},  k * 150, 'easeInOutExpo' );
+							
+						});
+					}, 100);
+
+					// Start counter animation
+					setTimeout(function() {
+						stats.find('.stat-number').each(function() {
+							var $this = $(this);
+							var countTo = parseInt($this.attr('data-count')) || 0;
+							
+							if (countTo > 0) {
+								$({ countNum: 0 }).animate({
+									countNum: countTo
+								}, {
+									duration: 2000,
+									easing: 'swing',
+									step: function() {
+										$this.text(Math.floor(this.countNum).toLocaleString('ar-EG'));
+									},
+									complete: function() {
+										$this.text(parseInt(this.countNum).toLocaleString('ar-EG'));
+									}
+								});
+							}
+						});
+					}, 300);
+
+					// Animate trust badges
+					setTimeout(function() {
+						stats.find('.trust-badge').each(function( k ) {
+							var el = $(this);
+							
+							setTimeout ( function () {
+								el.addClass('fadeIn animated');
+							},  k * 200, 'easeInOutExpo' );
+							
+						});
+					}, 800);
+
+					$(this.element).addClass('animated');
+						
+				}
+			} , { offset: '80%' } );
+
+		}
+	};
+
+	// Services Section Animation
+	var servicesSectionAnimate = function() {
+		var servicesSection = $('#fh5co-services-section');
+		if ( servicesSection.length > 0 ) {	
+
+			servicesSection.waypoint( function( direction ) {
+										
+				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+
+					setTimeout(function() {
+						servicesSection.find('.service-card').each(function( k ) {
+							var el = $(this);
+							
+							setTimeout ( function () {
+								el.addClass('fadeInUp animated');
+								el.css('opacity', '1');
+							},  k * 150, 'easeInOutExpo' );
+							
+						});
+					}, 200);
+
+					$(this.element).addClass('animated');
+						
+				}
+			} , { offset: '80%' } );
+
+		}
+	};
+
 	
 
 	// Document on load.
@@ -624,50 +736,73 @@
 		teamAnimate();
 		faqAnimate();
 		trustedAnimate();
+		statsAnimate();
+		servicesSectionAnimate();
 		footerAnimate();
 		
+		// Scroll indicator click handler
+		$('.scroll-indicator').on('click', function() {
+			var nextSection = $('#fh5co-stats');
+			if (nextSection.length) {
+				$('html, body').animate({
+					scrollTop: nextSection.offset().top - 50
+				}, 800);
+			}
+		});
+		
+		// Navbar scroll effect
+		$(window).on('scroll', function() {
+			var header = $('#fh5co-header');
+			if ($(this).scrollTop() > 50) {
+				header.addClass('scrolled');
+			} else {
+				header.removeClass('scrolled');
+			}
+		});
 
 	});
 
-	// Initialize DataTables
+	// Initialize DataTables with inline data from table-config.js
 	$(document).ready(function(){
-		$('#myTable').DataTable({
-			"data": tableData,              // Use the data from table-config.js
-			"columns": [                    // Define columns
-				{ 
-					"data": "place",
-					"className": "text-right"
+		if (typeof tableData !== 'undefined' && tableData.length > 0) {
+			$('#myTable').DataTable({
+				"data": tableData,
+				"columns": [
+					{ 
+						"data": "place",
+						"className": "text-right"
+					},
+					{ 
+						"data": "name",
+						"className": "text-right"
+					},
+					{ 
+						"data": "type",
+						"className": "text-right"
+					}
+				],
+				"pageLength": 10,
+				"lengthMenu": [10, 25, 50],
+				"ordering": true,
+				"order": [[0, 'asc']],
+				"language": {
+					"search": "بحث:",
+					"lengthMenu": "عرض _MENU_ سجلات في الصفحة",
+					"info": "عرض _START_ إلى _END_ من _TOTAL_ سجل",
+					"infoEmpty": "لا توجد سجلات متاحة",
+					"infoFiltered": "(تمت التصفية من _MAX_ سجل)",
+					"zeroRecords": "لم يتم العثور على سجلات مطابقة",
+					"paginate": {
+						"first": "الأول",
+						"last": "الأخير",
+						"next": "التالي",
+						"previous": "السابق"
+					}
 				},
-				{ 
-					"data": "name",
-					"className": "text-right"
-				},
-				{ 
-					"data": "type",
-					"className": "text-right"
-				}
-			],
-			"pageLength": 10,              // Show 10 entries per page
-			"lengthMenu": [10, 25, 50],    // Options for number of entries to show
-			"ordering": true,              // Enable sorting
-			"order": [[0, 'asc']],         // Default sort by first column ascending
-			"language": {
-				"search": "بحث:",
-				"lengthMenu": "عرض _MENU_ سجلات في الصفحة",
-				"info": "عرض _START_ إلى _END_ من _TOTAL_ سجل",
-				"infoEmpty": "لا توجد سجلات متاحة",
-				"infoFiltered": "(تمت التصفية من _MAX_ سجل)",
-				"zeroRecords": "لم يتم العثور على سجلات مطابقة",
-				"paginate": {
-					"first": "الأول",
-					"last": "الأخير",
-					"next": "التالي",
-					"previous": "السابق"
-				}
-			},
-			"dom": '<"top"lf>rt<"bottom"ip>', // Custom layout
-			"responsive": true,               // Make table responsive
-			"autoWidth": false                // Better column width handling
-		});
+				"dom": '<"top"lf>rt<"bottom"ip>',
+				"responsive": true,
+				"autoWidth": false
+			});
+		}
 	});
 }());
