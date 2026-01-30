@@ -104,19 +104,83 @@
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .custom-table-container {
-        padding: 10px;
+        padding: 15px;
         margin: 20px auto;
     }
-
-    .custom-datatable thead th,
+    
+    /* Hide table headers on mobile */
+    .custom-datatable thead {
+        display: none;
+    }
+    
+    /* Transform table rows into cards */
+    .custom-datatable tbody tr {
+        display: block !important;
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e8e8e8;
+        padding: 15px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .custom-datatable tbody tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+    
     .custom-datatable tbody td {
-        padding: 10px !important;
-        font-size: 14px !important;
+        display: block !important;
+        text-align: right !important;
+        padding: 10px 0 !important;
+        border: none !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        position: relative;
+        padding-right: 50% !important;
+    }
+    
+    .custom-datatable tbody td:last-child {
+        border-bottom: none !important;
+    }
+    
+    /* Add labels before each cell */
+    .custom-datatable tbody td:nth-child(1)::before {
+        content: "المكان";
+        position: absolute;
+        right: 0;
+        top: 10px;
+        font-weight: 700;
+        color: #07ad87;
+        font-size: 12px;
+    }
+    
+    .custom-datatable tbody td:nth-child(2)::before {
+        content: "اسم المؤسسة";
+        position: absolute;
+        right: 0;
+        top: 10px;
+        font-weight: 700;
+        color: #07ad87;
+        font-size: 12px;
+    }
+    
+    .custom-datatable tbody td:nth-child(3)::before {
+        content: "النوع";
+        position: absolute;
+        right: 0;
+        top: 10px;
+        font-weight: 700;
+        color: #07ad87;
+        font-size: 12px;
     }
 
     .dataTables_wrapper .dataTables_filter input {
         width: 100% !important;
         margin: 10px 0 !important;
+        padding: 12px 15px !important;
+        font-size: 16px !important;
+        border-radius: 8px !important;
     }
 
     .dataTables_wrapper .dataTables_length,
@@ -124,6 +188,36 @@
         text-align: right !important;
         float: none !important;
         display: block !important;
+    }
+    
+    .dataTables_wrapper .dataTables_info {
+        text-align: center !important;
+        padding: 15px 0 !important;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 10px 14px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .custom-datatable tbody td {
+        padding-right: 45% !important;
+        font-size: 13px !important;
+    }
+    
+    .custom-datatable tbody td::before {
+        font-size: 11px !important;
     }
 }
 

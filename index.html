@@ -99,11 +99,11 @@
 
 <body>
     <!-- Header -->
-<header role="banner" id="fh5co-header" dir="rtl" style="background: #fff !important;">
+<header role="banner" id="fh5co-header" dir="rtl">
   <div class="fluid-container">
-    <nav class="navbar navbar-default navbar-rtl" role="navigation" style="background: #fff !important;">
+    <nav class="navbar navbar-default navbar-rtl" role="navigation">
       
-      <!-- Mobile Toggle Menu Button (LEFT side in RTL) -->
+      <!-- Mobile Toggle Menu Button -->
       <button type="button" class="js-fh5co-nav-toggle fh5co-nav-toggle nav-toggle-btn" 
          data-toggle="collapse" data-target="#navbar" 
          aria-expanded="false" aria-controls="navbar"
@@ -111,27 +111,31 @@
         <i></i>
       </button>
       
-      <!-- Logo & Name (RIGHT side in RTL) -->
-      <div class="navbar-header navbar-header-rtl">
-        <div id="logo">
-          <img src="images/mainIcon.png" alt="شعار شركة أمالندو لانقق" class="logo logo-img" loading="eager">
-          <h3 class="logo-title">
-            <a href="index.html">شركة أمالندو لانقق</a>
-          </h3>
-        </div>
+      <!-- Logo & Name - Horizontal Layout -->
+      <div class="navbar-brand-wrapper">
+        <a href="index.html" class="navbar-brand-link">
+          <img src="images/mainIcon.png" alt="أمالندو" class="brand-logo" loading="eager">
+          <span class="brand-name">أمالندو لانقق</span>
+        </a>
       </div>
       
-      <!-- Navigation Menu (LEFT side in RTL) -->
+      <!-- Navigation Menu -->
       <div id="navbar" class="navbar-collapse collapse navbar-container">
         <ul class="nav navbar-nav nav-menu-rtl">
-          <!-- Order: الرئيسية (Home) first on right, then others to left -->
-          <li class="active"><a href="#" data-nav-section="home">الرئيسية</a></li>
-          <li><a href="#" data-nav-section="services">خدماتنا</a></li>
-          <li><a href="#" data-nav-section="explore">من نحن</a></li>
-          <li><a href="#" data-nav-section="gallery">معرض الصور</a></li>
-          <li><a href="#" data-nav-section="partners">شركاؤنا</a></li>
-          <li><a href="#" data-nav-section="contact">تواصل</a></li>
+          <li class="active"><a href="#" data-nav-section="home"><span>الرئيسية</span></a></li>
+          <li><a href="#" data-nav-section="services"><span>خدماتنا</span></a></li>
+          <li><a href="#" data-nav-section="explore"><span>من نحن</span></a></li>
+          <li><a href="#" data-nav-section="gallery"><span>الصور</span></a></li>
+          <li><a href="#" data-nav-section="partners"><span>شركاؤنا</span></a></li>
+          <li><a href="#" data-nav-section="pendaftaran"><span>التسجيل</span></a></li>
+          <li><a href="#" data-nav-section="contact"><span>تواصل</span></a></li>
         </ul>
+        
+        <!-- WhatsApp CTA Button -->
+        <a href="https://wa.me/62818962223" class="navbar-cta" target="_blank" rel="noopener noreferrer">
+          <i class="icon-bubbles"></i>
+          <span>واتساب</span>
+        </a>
       </div>
     </nav>
   </div>

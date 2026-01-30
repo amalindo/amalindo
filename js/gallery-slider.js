@@ -7,6 +7,8 @@ class GallerySlider {
         this.isTransitioning = false;
         this.isPaused = false;
         this.autoSlideInterval = null;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
         
         if (!this.container) {
             console.warn('Slider container not found:', containerId);
@@ -27,6 +29,7 @@ class GallerySlider {
         this.startAutoSlide();
         this.addKeyboardNavigation();
         this.addHoverPause();
+        this.addSwipeSupport();
     }
     
     createSliderHTML() {
@@ -37,7 +40,7 @@ class GallerySlider {
         this.images.forEach((image, index) => {
             const slide = document.createElement('div');
             slide.className = 'gallery-slide';
-            slide.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+            slide.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy">`;
             this.container.appendChild(slide);
         });
         
@@ -45,15 +48,23 @@ class GallerySlider {
         const prevBtn = document.createElement('button');
         prevBtn.className = 'gallery-prev';
         prevBtn.innerHTML = '&#10094;';
+        prevBtn.setAttribute('aria-label', 'الصورة السابقة');
         prevBtn.onclick = () => this.prevSlide();
         
         const nextBtn = document.createElement('button');
         nextBtn.className = 'gallery-next';
         nextBtn.innerHTML = '&#10095;';
+        nextBtn.setAttribute('aria-label', 'الصورة التالية');
         nextBtn.onclick = () => this.nextSlide();
         
         this.container.appendChild(prevBtn);
         this.container.appendChild(nextBtn);
+        
+        // Create image counter
+        const counter = document.createElement('div');
+        counter.className = 'gallery-counter';
+        counter.innerHTML = `<span class="current">1</span> / <span class="total">${this.images.length}</span>`;
+        this.container.appendChild(counter);
         
         // Create dots with wrapper
         const dotsWrapper = document.createElement('div');
@@ -79,6 +90,7 @@ class GallerySlider {
         
         const slides = this.container.querySelectorAll('.gallery-slide');
         const dots = document.querySelectorAll('.gallery-dot');
+        const counter = this.container.querySelector('.gallery-counter .current');
         
         // Handle wrap around
         if (index >= slides.length) index = 0;
@@ -91,6 +103,11 @@ class GallerySlider {
         // Show current slide and activate dot
         slides[index].classList.add('active');
         dots[index].classList.add('active');
+        
+        // Update counter
+        if (counter) {
+            counter.textContent = index + 1;
+        }
         
         this.currentIndex = index;
     }
@@ -119,6 +136,34 @@ class GallerySlider {
         this.isPaused = false;
     }
     
+    addSwipeSupport() {
+        this.container.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.changedTouches[0].screenX;
+            this.pauseAutoSlide();
+        }, { passive: true });
+        
+        this.container.addEventListener('touchend', (e) => {
+            this.touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+            setTimeout(() => this.resumeAutoSlide(), 2000);
+        }, { passive: true });
+    }
+    
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swiped left - next slide (in RTL this feels natural)
+                this.nextSlide();
+            } else {
+                // Swiped right - prev slide
+                this.prevSlide();
+            }
+        }
+    }
+    
     addKeyboardNavigation() {
         document.addEventListener('keydown', (e) => {
             // Only handle if gallery is in view
@@ -141,12 +186,6 @@ class GallerySlider {
     addHoverPause() {
         this.container.addEventListener('mouseenter', () => this.pauseAutoSlide());
         this.container.addEventListener('mouseleave', () => this.resumeAutoSlide());
-        
-        // Touch support
-        this.container.addEventListener('touchstart', () => this.pauseAutoSlide(), { passive: true });
-        this.container.addEventListener('touchend', () => {
-            setTimeout(() => this.resumeAutoSlide(), 2000);
-        }, { passive: true });
     }
 }
 

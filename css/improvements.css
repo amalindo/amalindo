@@ -235,12 +235,16 @@ button:focus {
     right: 0 !important;
     z-index: 1000 !important;
     transition: all 0.3s ease;
-    background: #fff !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     opacity: 1 !important;
 }
 
 #fh5co-header .fluid-container {
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -250,77 +254,94 @@ button:focus {
 #fh5co-header .navbar.navbar-rtl,
 #fh5co-header .navbar.navbar-default.navbar-rtl {
     direction: rtl !important;
-    min-height: 70px !important;
+    min-height: 60px !important;
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 30px !important;
-    background: #fff !important;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.08) !important;
+    padding: 0 20px !important;
+    background: transparent !important;
+    box-shadow: none !important;
     margin: 0 !important;
     border: none !important;
     border-radius: 0 !important;
     transition: all 0.3s ease;
+    gap: 0 !important;
 }
 
-/* Navbar scrolled state - slightly smaller */
+/* Navbar shadow on header instead */
+#fh5co-header {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+/* Navbar scrolled state - slightly smaller with blur */
+#fh5co-header.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+}
+
 #fh5co-header.scrolled .navbar,
 #fh5co-header.scrolled .navbar-default,
 #fh5co-header.scrolled .navbar.navbar-rtl {
-    min-height: 60px !important;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.12) !important;
+    min-height: 55px !important;
 }
 
-/* Logo container - RIGHT side in RTL */
-#fh5co-header .navbar-header-rtl {
-    float: none !important;
-    text-align: center;
-    padding: 5px 10px !important;
-    margin: 0 !important;
+/* ===========================================
+   Modern Navbar Brand - Horizontal Layout
+   =========================================== */
+#fh5co-header .navbar-brand-wrapper {
     flex-shrink: 0;
 }
 
-/* Logo Styles */
-#fh5co-header .logo-img {
-    width: 45px !important;
-    height: 45px !important;
-    display: block !important;
-    margin: 0 auto !important;
-}
-
-#fh5co-header .logo-title {
-    margin: 5px 0 0 !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    line-height: 1.2 !important;
-}
-
-#fh5co-header .logo-title a {
-    color: #07ad87 !important;
+#fh5co-header .navbar-brand-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
     text-decoration: none !important;
-    transition: color 0.3s ease;
+    padding: 8px 0 !important;
+    transition: transform 0.2s ease;
 }
 
-#fh5co-header .logo-title a:hover {
-    color: #059e7a !important;
+#fh5co-header .navbar-brand-link:hover {
+    transform: scale(1.02);
 }
 
-/* Navigation Menu Container - LEFT side in RTL */
+#fh5co-header .brand-logo {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(7, 173, 135, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+#fh5co-header .navbar-brand-link:hover .brand-logo {
+    box-shadow: 0 4px 12px rgba(7, 173, 135, 0.3);
+}
+
+#fh5co-header .brand-name {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #07ad87 !important;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+}
+
+/* Navigation Menu Container */
 #fh5co-header .navbar-container {
     float: none !important;
     flex: 1 !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important; /* Aligns to left in RTL */
+    justify-content: flex-start !important;
+    gap: 15px !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
     height: auto !important;
 }
 
-/* Navigation Menu - horizontal, RTL order */
+/* Navigation Menu - Modern Style */
 #fh5co-header .nav-menu-rtl {
     display: flex !important;
     flex-direction: row !important;
@@ -338,37 +359,91 @@ button:focus {
     float: none !important;
     display: block !important;
     margin: 0 !important;
+    position: relative;
 }
 
 #fh5co-header .nav-menu-rtl > li > a {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    padding: 10px 12px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    padding: 10px 14px !important;
     margin: 0 !important;
     display: block !important;
-    transition: color 0.3s ease;
-    color: #555 !important;
+    color: #444 !important;
     text-decoration: none !important;
     white-space: nowrap !important;
     background: transparent !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#fh5co-header .nav-menu-rtl > li > a > span {
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline animation on hover */
+#fh5co-header .nav-menu-rtl > li > a > span::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: #07ad87;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+#fh5co-header .nav-menu-rtl > li > a:hover > span::after {
+    width: 100%;
 }
 
 #fh5co-header .nav-menu-rtl > li > a:hover {
     color: #07ad87 !important;
-    background: transparent !important;
+    background: rgba(7, 173, 135, 0.08) !important;
 }
 
+/* Active state - pill style */
 #fh5co-header .nav-menu-rtl > li.active > a {
     color: #07ad87 !important;
-    background: transparent !important;
+    background: rgba(7, 173, 135, 0.12) !important;
+    font-weight: 600 !important;
 }
 
-/* Hide the span inside links if any */
-#fh5co-header .nav-menu-rtl > li > a > span {
-    display: inline !important;
+#fh5co-header .nav-menu-rtl > li.active > a > span::after {
+    width: 100%;
 }
 
-/* Mobile Toggle Button - LEFT side in RTL */
+/* WhatsApp CTA Button */
+#fh5co-header .navbar-cta {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#fh5co-header .navbar-cta:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    color: #fff !important;
+}
+
+#fh5co-header .navbar-cta i {
+    font-size: 16px;
+}
+
+/* Mobile Toggle Button */
 #fh5co-header .nav-toggle-btn {
     position: absolute !important;
     left: 15px !important;
@@ -426,17 +501,17 @@ button:focus {
         position: relative !important;
     }
     
-    #fh5co-header .navbar-header-rtl {
+    #fh5co-header .navbar-brand-wrapper {
         flex: 1;
-        padding: 10px 0 !important;
+        padding: 8px 0 !important;
     }
     
-    #fh5co-header .logo-img {
-        width: 40px !important;
-        height: 40px !important;
+    #fh5co-header .brand-logo {
+        width: 36px !important;
+        height: 36px !important;
     }
     
-    #fh5co-header .logo-title {
+    #fh5co-header .brand-name {
         font-size: 16px !important;
     }
     
@@ -451,6 +526,7 @@ button:focus {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        flex-direction: column !important;
     }
     
     /* Show menu when toggle is active */
@@ -458,8 +534,8 @@ button:focus {
     #fh5co-header .navbar-collapse.in,
     #fh5co-header .navbar-container.show,
     #fh5co-header .navbar-collapse.show {
-        display: block !important;
-        max-height: 400px;
+        display: flex !important;
+        max-height: 500px;
     }
     
     #fh5co-header .nav-menu-rtl {
@@ -476,14 +552,27 @@ button:focus {
     }
     
     #fh5co-header .nav-menu-rtl > li > a {
-        padding: 12px 15px !important;
+        padding: 14px 20px !important;
         font-size: 16px !important;
         display: block !important;
-        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+        border-radius: 0 !important;
     }
     
-    #fh5co-header .nav-menu-rtl > li:last-child > a {
-        border-bottom: none !important;
+    #fh5co-header .nav-menu-rtl > li > a > span::after {
+        display: none !important;
+    }
+    
+    #fh5co-header .nav-menu-rtl > li.active > a {
+        background: rgba(7, 173, 135, 0.1) !important;
+    }
+    
+    /* Mobile WhatsApp CTA - Full width */
+    #fh5co-header .navbar-cta {
+        width: calc(100% - 40px) !important;
+        margin: 15px 20px !important;
+        justify-content: center !important;
+        padding: 14px 20px !important;
+        font-size: 16px !important;
     }
     
     #fh5co-header .nav-toggle-btn {
