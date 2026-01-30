@@ -2091,8 +2091,13 @@ html {
 }
 
 .indonesian-only-notice .notice-flag {
-    font-size: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.indonesian-only-notice .notice-flag svg {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .indonesian-only-notice .notice-id {
