@@ -1,4 +1,30 @@
 const gallerySlides = [
+    // New Images - 29/01/2026
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.38 PM.webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.39 PM.webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.40 PM.webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.41 PM.webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.41 PM (1).webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+    {
+        src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.42 PM.webp",
+        alt: "صورة جديدة - 29 يناير 2026"
+    },
+
     // Training Agents
     {
         src: "images/trainAgent-1.jpg",
@@ -32,10 +58,6 @@ const gallerySlides = [
         src: "images/trainAgent-8.jpg",
         alt: "تدريب العمالة - تدريب متخصص"
     },
-    {
-        src: "images/trainAgent-9.jpg",
-        alt: "تدريب العمالة - برنامج تأهيل مهني"
-    },
 
     // Travel Agents
     {
@@ -59,10 +81,6 @@ const gallerySlides = [
     {
         src: "images/hospitalAgent-3.jpeg",
         alt: "عمالة المستشفيات - طاقم تمريض متخصص"
-    },
-    {
-        src: "images/hospitalAgent-4.jpeg",
-        alt: "عمالة المستشفيات - فريق طبي محترف"
     },
     {
         src: "images/hospitalAgent-5.jpeg",

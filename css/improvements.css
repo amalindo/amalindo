@@ -1959,3 +1959,248 @@ html {
 .stats-section .trust-badge {
     opacity: 1;
 }
+
+/* ===========================================
+   Indonesian Registration Section
+   =========================================== */
+.indonesian-registration-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5f2 50%, #f0f9f7 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.indonesian-registration-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff0000 50%, #ffffff 50%);
+}
+
+.registration-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Indonesian Only Notice */
+.indonesian-only-notice {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.indonesian-only-notice .notice-flag {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.indonesian-only-notice .notice-id {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.indonesian-only-notice .notice-ar {
+    font-size: 1.3rem;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.indonesia-flag-accent {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 6px;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%);
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.2);
+}
+
+.registration-title {
+    font-size: 2.5rem;
+    color: var(--brand-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.registration-subtitle {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.registration-subtitle-ar {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.contact-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background: linear-gradient(145deg, #07ad87, #059e7a);
+    border-radius: 15px;
+    padding: 30px 35px;
+    min-width: 280px;
+    color: #ffffff;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(7, 173, 135, 0.3);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(7, 173, 135, 0.4);
+}
+
+.contact-card.visa-card {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.3);
+}
+
+.contact-card.visa-card:hover {
+    box-shadow: 0 15px 40px rgba(44, 62, 80, 0.4);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contact-icon i {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.contact-card h4 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.phone-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    direction: ltr;
+}
+
+.phone-number:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+    color: #ffffff;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.whatsapp-btn i {
+    font-size: 18px;
+}
+
+.office-visit-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #666;
+}
+
+.office-visit-info i {
+    font-size: 24px;
+    color: var(--brand-primary);
+}
+
+.office-visit-info p {
+    margin: 0;
+    font-size: 1rem;
+    direction: ltr;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 40px 25px;
+    }
+    
+    .registration-title {
+        font-size: 2rem;
+    }
+    
+    .contact-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-card {
+        min-width: 100%;
+        max-width: 320px;
+    }
+    
+    .phone-number {
+        font-size: 1.3rem;
+    }
+    
+    .office-visit-info {
+        flex-direction: column;
+        text-align: center;
+    }
+}
