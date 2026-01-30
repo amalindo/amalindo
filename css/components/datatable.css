@@ -101,123 +101,172 @@
     border-color: #07ad87 !important;
 }
 
-/* Responsive Design */
+/* ===========================================
+   Mobile Responsive - Card Layout
+   =========================================== */
 @media screen and (max-width: 768px) {
     .custom-table-container {
-        padding: 15px;
-        margin: 20px auto;
+        padding: 10px;
+        margin: 15px auto;
+        background: transparent;
+        box-shadow: none;
     }
     
-    /* Hide table headers on mobile */
+    /* Hide table structure */
+    .custom-datatable {
+        border: none !important;
+        background: transparent !important;
+    }
+    
     .custom-datatable thead {
-        display: none;
+        display: none !important;
     }
     
-    /* Transform table rows into cards */
+    .custom-datatable tbody {
+        display: block !important;
+    }
+    
+    /* Card Style Rows */
     .custom-datatable tbody tr {
         display: block !important;
-        background: #fff;
-        margin-bottom: 15px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e8e8e8;
-        padding: 15px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: #fff !important;
+        margin-bottom: 12px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+        border: 1px solid #eee !important;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    
+    .custom-datatable tbody tr:nth-child(even) {
+        background: #fff !important;
     }
     
     .custom-datatable tbody tr:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        transform: none !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
     }
     
+    /* Cell Layout */
     .custom-datatable tbody td {
-        display: block !important;
-        text-align: right !important;
-        padding: 10px 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        padding: 12px 15px !important;
         border: none !important;
-        border-bottom: 1px solid #f0f0f0 !important;
-        position: relative;
-        padding-right: 50% !important;
+        border-bottom: 1px solid #f5f5f5 !important;
+        text-align: left !important;
+        font-size: 14px !important;
+        gap: 10px !important;
     }
     
     .custom-datatable tbody td:last-child {
         border-bottom: none !important;
     }
     
-    /* Add labels before each cell */
+    /* Labels */
+    .custom-datatable tbody td::before {
+        content: attr(data-label);
+        font-weight: 700 !important;
+        color: #07ad87 !important;
+        font-size: 12px !important;
+        text-transform: uppercase;
+        flex-shrink: 0;
+        min-width: 80px;
+    }
+    
     .custom-datatable tbody td:nth-child(1)::before {
         content: "المكان";
-        position: absolute;
-        right: 0;
-        top: 10px;
-        font-weight: 700;
-        color: #07ad87;
-        font-size: 12px;
     }
     
     .custom-datatable tbody td:nth-child(2)::before {
-        content: "اسم المؤسسة";
-        position: absolute;
-        right: 0;
-        top: 10px;
-        font-weight: 700;
-        color: #07ad87;
-        font-size: 12px;
+        content: "المؤسسة";
     }
     
     .custom-datatable tbody td:nth-child(3)::before {
         content: "النوع";
-        position: absolute;
-        right: 0;
-        top: 10px;
-        font-weight: 700;
-        color: #07ad87;
-        font-size: 12px;
     }
-
+    
+    /* Search Box */
+    .dataTables_wrapper .dataTables_filter {
+        width: 100% !important;
+        padding: 0 5px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .dataTables_wrapper .dataTables_filter label {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
     .dataTables_wrapper .dataTables_filter input {
         width: 100% !important;
-        margin: 10px 0 !important;
-        padding: 12px 15px !important;
+        margin: 8px 0 0 0 !important;
+        padding: 14px 16px !important;
         font-size: 16px !important;
-        border-radius: 8px !important;
-    }
-
-    .dataTables_wrapper .dataTables_length,
-    .dataTables_wrapper .dataTables_filter {
-        text-align: right !important;
-        float: none !important;
-        display: block !important;
+        border-radius: 10px !important;
+        border: 2px solid #e0e0e0 !important;
     }
     
+    .dataTables_wrapper .dataTables_filter input:focus {
+        border-color: #07ad87 !important;
+        outline: none !important;
+    }
+    
+    /* Hide length selector on mobile */
+    .dataTables_wrapper .dataTables_length {
+        display: none !important;
+    }
+    
+    /* Info Text */
     .dataTables_wrapper .dataTables_info {
         text-align: center !important;
-        padding: 15px 0 !important;
+        padding: 10px 0 !important;
+        font-size: 13px !important;
+        color: #666 !important;
     }
     
+    /* Pagination */
     .dataTables_wrapper .dataTables_paginate {
-        text-align: center !important;
         display: flex !important;
         justify-content: center !important;
         flex-wrap: wrap !important;
-        gap: 5px !important;
+        gap: 6px !important;
+        padding: 15px 0 !important;
     }
     
     .dataTables_wrapper .dataTables_paginate .paginate_button {
-        padding: 10px 14px !important;
+        padding: 10px 16px !important;
         font-size: 14px !important;
+        border-radius: 8px !important;
+        min-width: 44px !important;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+        padding: 10px 14px !important;
     }
 }
 
 /* Extra small screens */
 @media screen and (max-width: 480px) {
     .custom-datatable tbody td {
-        padding-right: 45% !important;
-        font-size: 13px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        padding: 10px 12px !important;
     }
     
     .custom-datatable tbody td::before {
         font-size: 11px !important;
+        margin-bottom: 2px;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        min-width: 40px !important;
     }
 }
 
