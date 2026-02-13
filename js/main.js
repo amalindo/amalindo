@@ -784,7 +784,7 @@
 				"pageLength": 10,
 				"lengthMenu": [10, 25, 50],
 				"ordering": true,
-				"order": [[0, 'asc']],
+				"order": [],
 				"language": {
 					"search": "بحث:",
 					"lengthMenu": "عرض _MENU_ سجلات في الصفحة",
