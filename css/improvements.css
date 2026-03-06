@@ -92,7 +92,6 @@ section {
 
 .section-heading {
     text-align: center;
-    margin-bottom: 50px;
 }
 
 .section-heading h2,
@@ -443,24 +442,19 @@ button:focus {
     font-size: 16px;
 }
 
-/* Mobile Toggle Button */
+/* Mobile Toggle Button - Hidden on desktop */
 #fh5co-header .nav-toggle-btn {
-    position: absolute !important;
-    left: 15px !important;
-    right: auto !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    display: none !important;
     background: none !important;
     border: none !important;
     cursor: pointer !important;
     z-index: 100 !important;
     padding: 10px !important;
-    display: none !important; /* Hidden on desktop */
 }
 
 #fh5co-header .nav-toggle-btn i {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: #333;
     position: relative;
@@ -471,7 +465,7 @@ button:focus {
 #fh5co-header .nav-toggle-btn i::after {
     content: '';
     position: absolute;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: #333;
     left: 0;
@@ -479,104 +473,223 @@ button:focus {
 }
 
 #fh5co-header .nav-toggle-btn i::before {
-    top: -7px;
+    top: -6px;
 }
 
 #fh5co-header .nav-toggle-btn i::after {
-    top: 7px;
+    top: 6px;
 }
 
-/* Mobile Navigation Styles */
+/* Hamburger → X animation */
+#fh5co-header .nav-toggle-btn.active i {
+    background: transparent !important;
+}
+
+#fh5co-header .nav-toggle-btn.active i::before {
+    top: 0 !important;
+    transform: rotate(45deg) !important;
+    background: #07ad87 !important;
+}
+
+#fh5co-header .nav-toggle-btn.active i::after {
+    top: 0 !important;
+    transform: rotate(-45deg) !important;
+    background: #07ad87 !important;
+}
+
+/* ===========================================
+   Mobile Navigation (≤992px)
+   =========================================== */
 @media screen and (max-width: 992px) {
     #fh5co-header {
         position: fixed !important;
     }
-    
+
+    /* Top bar: brand right, toggle left - fixed 56px height */
     #fh5co-header .navbar,
     #fh5co-header .navbar-default,
     #fh5co-header .navbar.navbar-rtl {
-        flex-wrap: wrap !important;
-        min-height: 60px !important;
-        padding: 0 15px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 56px !important;
+        height: 56px !important;
+        padding: 0 16px !important;
         position: relative !important;
     }
-    
+
+    /* Brand on the right (RTL) - margin-left auto pushes it to flex-end (right in RTL = start) */
     #fh5co-header .navbar-brand-wrapper {
-        flex: 1;
-        padding: 8px 0 !important;
+        order: 1 !important;
+        flex: none !important;
+        padding: 0 !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+        float: none !important;
+        text-align: right !important;
     }
-    
+
+    #fh5co-header .navbar-brand-link {
+        gap: 10px !important;
+    }
+
     #fh5co-header .brand-logo {
-        width: 36px !important;
-        height: 36px !important;
+        width: 34px !important;
+        height: 34px !important;
     }
-    
+
     #fh5co-header .brand-name {
-        font-size: 16px !important;
+        font-size: 17px !important;
     }
-    
-    /* Hide menu by default on mobile */
+
+    /* Toggle button on the left (RTL) - stays in the top bar */
+    #fh5co-header .nav-toggle-btn,
+    #fh5co-header .fh5co-nav-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        order: 2 !important;
+        position: static !important;
+        transform: none !important;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 8px !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        flex-shrink: 0 !important;
+    }
+
+    #fh5co-header .nav-toggle-btn:active {
+        background: rgba(0,0,0,0.05) !important;
+    }
+
+    /* Dropdown menu - absolutely positioned below the 56px header */
     #fh5co-header .navbar-container,
     #fh5co-header .navbar-collapse {
-        display: none !important;
+        position: absolute !important;
+        top: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
         width: 100% !important;
-        order: 3;
-        background: #fff;
-        border-top: 1px solid #eee;
+        background: #fff !important;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
-        flex-direction: column !important;
+        opacity: 0;
+        visibility: hidden;
+        transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0s linear 0.3s;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        z-index: 999 !important;
     }
-    
+
     /* Show menu when toggle is active */
     #fh5co-header .navbar-container.in,
     #fh5co-header .navbar-collapse.in,
     #fh5co-header .navbar-container.show,
     #fh5co-header .navbar-collapse.show {
-        display: flex !important;
-        max-height: 500px;
+        max-height: 420px;
+        opacity: 1;
+        visibility: visible;
+        overflow-y: auto;
+        transition: max-height 0.3s ease, opacity 0.2s ease, visibility 0s linear 0s;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
+        border-top: 1px solid #f0f0f0 !important;
     }
-    
+
+    /* Override Bootstrap collapse display */
+    #fh5co-header .navbar-collapse.collapse {
+        display: flex !important;
+        height: auto !important;
+    }
+
+    /* Menu items */
     #fh5co-header .nav-menu-rtl {
         flex-direction: column !important;
         gap: 0 !important;
-        text-align: center !important;
         width: 100% !important;
-        padding: 10px 0 !important;
+        padding: 6px 0 !important;
+        margin: 0 !important;
     }
-    
+
     #fh5co-header .nav-menu-rtl > li {
         width: 100% !important;
         display: block !important;
     }
-    
+
     #fh5co-header .nav-menu-rtl > li > a {
-        padding: 14px 20px !important;
-        font-size: 16px !important;
+        padding: 13px 24px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
         display: block !important;
         border-radius: 0 !important;
+        text-align: right !important;
+        color: #333 !important;
+        transition: background 0.15s ease, color 0.15s ease;
     }
-    
+
     #fh5co-header .nav-menu-rtl > li > a > span::after {
         display: none !important;
     }
-    
+
+    /* Active item - subtle left border accent (appears on right in RTL) */
     #fh5co-header .nav-menu-rtl > li.active > a {
-        background: rgba(7, 173, 135, 0.1) !important;
+        background: rgba(7, 173, 135, 0.06) !important;
+        color: #07ad87 !important;
+        font-weight: 600 !important;
+        border-right: 3px solid #07ad87 !important;
     }
-    
-    /* Mobile WhatsApp CTA - Full width */
+
+    #fh5co-header .nav-menu-rtl > li > a:hover {
+        background: #f8f9fa !important;
+        color: #07ad87 !important;
+    }
+
+    /* Divider line between CTA and menu */
+    #fh5co-header .navbar-cta {
+        width: calc(100% - 48px) !important;
+        margin: 8px 24px 14px !important;
+        justify-content: center !important;
+        padding: 12px 20px !important;
+        font-size: 15px !important;
+        border-radius: 10px !important;
+    }
+}
+
+/* Small phones (≤480px) */
+@media screen and (max-width: 480px) {
+    #fh5co-header .navbar,
+    #fh5co-header .navbar-default,
+    #fh5co-header .navbar.navbar-rtl {
+        padding: 0 12px !important;
+    }
+
+    #fh5co-header .brand-name {
+        font-size: 15px !important;
+    }
+
+    #fh5co-header .brand-logo {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    #fh5co-header .navbar-brand-link {
+        gap: 8px !important;
+    }
+
+    #fh5co-header .nav-menu-rtl > li > a {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+    }
+
     #fh5co-header .navbar-cta {
         width: calc(100% - 40px) !important;
-        margin: 15px 20px !important;
-        justify-content: center !important;
-        padding: 14px 20px !important;
-        font-size: 16px !important;
-    }
-    
-    #fh5co-header .nav-toggle-btn {
-        display: block !important; /* Show on mobile */
+        margin: 8px 20px 12px !important;
     }
 }
 
@@ -587,7 +700,7 @@ button:focus {
 /* Hero section mobile optimization */
 #fh5co-home h1 {
     font-size: clamp(1.5rem, 4vw, 3rem);
-    line-height: 1.2;
+    line-height: 1.6;
 }
 
 #fh5co-home h2 {
@@ -632,7 +745,7 @@ button:focus {
     .table-responsive thead tr {
         position: absolute;
         top: -9999px;
-        left: -9999px;
+        right: -9999px;
     }
     
     .table-responsive tr {
@@ -644,20 +757,13 @@ button:focus {
     .table-responsive td {
         border: none;
         position: relative;
-        padding-left: 50%;
+        padding-right: 50%;
+        padding-left: 0;
         text-align: right !important;
+        direction: rtl;
     }
     
-    .table-responsive td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        font-weight: bold;
-        color: #07ad87;
-    }
+
 }
 
 /* Contact form improvements */
@@ -787,15 +893,23 @@ button:focus {
 #fh5co-footer .contact-info li {
     padding: 8px 0;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: #bdc3c7;
+    direction: rtl;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 #fh5co-footer .contact-info li i {
     color: #07ad87;
     font-size: 18px;
-    width: 25px;
+    width: 22px;
+    min-width: 22px;
+    text-align: center;
+    position: static !important;
+    order: -1;
 }
 
 #fh5co-footer .contact-info a {
@@ -814,7 +928,9 @@ button:focus {
     padding: 0;
     margin: 15px 0;
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
+    direction: rtl;
 }
 
 #fh5co-footer .social-media li a {
@@ -1144,9 +1260,6 @@ button:focus {
     font-weight: 400;
 }
 
-.services-grid {
-    margin-top: 40px;
-}
 
 .service-card {
     background: #fff;
@@ -1750,6 +1863,7 @@ html {
     }
     
     .custom-table-container {
+        padding: 0 8px;
         margin: 0 -10px;
         overflow-x: auto;
     }
@@ -1773,7 +1887,6 @@ html {
     
     .dataTables_wrapper .dataTables_filter input {
         width: 100% !important;
-        max-width: 250px !important;
     }
     
     .dataTables_wrapper .dataTables_info,

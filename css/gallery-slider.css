@@ -173,11 +173,11 @@
 }
 
 .gallery-prev {
-    left: 20px;
+    right: 20px;
 }
 
 .gallery-next {
-    right: 20px;
+    left: 20px;
 }
 
 .gallery-prev:hover, .gallery-next:hover {
@@ -323,11 +323,11 @@
     }
     
     .gallery-prev {
-        left: 15px;
+        right: 15px;
     }
     
     .gallery-next {
-        right: 15px;
+        left: 15px;
     }
     
     .gallery-prev:hover, .gallery-next:hover {
@@ -373,11 +373,11 @@
     }
     
     .gallery-prev {
-        left: 10px;
+        right: 10px;
     }
     
     .gallery-next {
-        right: 10px;
+        left: 10px;
     }
     
     .gallery-prev:hover, .gallery-next:hover {
