@@ -89,8 +89,8 @@
 			    	}, 500);
 			   }
 
-		    if ( navbar.is(':visible')) {
-		    	navbar.removeClass('in');
+		    if ( navbar.hasClass('in') || navbar.hasClass('show') ) {
+		    	navbar.removeClass('in show');
 		    	navbar.attr('aria-expanded', 'false');
 		    	$('.js-fh5co-nav-toggle').removeClass('active');
 		    }
