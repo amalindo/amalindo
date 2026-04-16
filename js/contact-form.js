@@ -104,6 +104,13 @@ class ContactForm {
             return;
         }
 
+        // Fire Google Ads conversion + GA4 event for successful form submission
+        try {
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion(null, 'contact_form_submit');
+            }
+        } catch (err) { /* never block submit */ }
+
         // Show loading state
         this.submitButton.disabled = true;
         this.submitButton.classList.add('loading');

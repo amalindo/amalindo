@@ -74,14 +74,25 @@
         gtag('config', 'G-DDFZ3X5N7T');
         gtag('config', 'AW-866647301');
         
-        // Conversion tracking - fire-and-forget, never block navigation
-        function gtag_report_conversion(url) {
+        // Conversion tracking - fire-and-forget, never block navigation.
+        // `label` is an optional CTA identifier used for segmentation in GA4.
+        function gtag_report_conversion(url, label) {
             try {
                 if (typeof gtag === 'function') {
+                    // Google Ads conversion (main contact intent)
                     gtag('event', 'conversion', {
                         'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
                         'transport_type': 'beacon'
                     });
+                    // GA4 event with label (can be imported as extra Ads conversions later)
+                    if (label) {
+                        gtag('event', 'cta_click', {
+                            'event_category': 'engagement',
+                            'event_label': label,
+                            'cta_type': label,
+                            'transport_type': 'beacon'
+                        });
+                    }
                 }
             } catch (e) { /* ignore - never block click */ }
             return true;
@@ -124,7 +135,7 @@
         </ul>
         
         <!-- WhatsApp CTA Button -->
-        <a href="https://wa.me/62818962223" onclick="return gtag_report_conversion(this.href)" class="navbar-cta" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/62818962223" onclick="return gtag_report_conversion(this.href, 'whatsapp_nav')" class="navbar-cta" target="_blank" rel="noopener noreferrer">
           <i class="icon-bubbles"></i>
           <span>واتساب</span>
         </a>
@@ -179,14 +190,17 @@
                             <!-- CTA Buttons -->
                             <div class="hero-cta to-animate">
                                 <a href="https://api.whatsapp.com/send/?phone=+62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D8%A7%20%D9%85%D9%87%D9%86%D9%8A%D8%A9%20%D9%88%D9%85%D8%AA%D8%AE%D8%B5%D8%B5%D8%A9%20%20%D9%86%D8%AD%D9%86%20%D8%B4%D8%B1%D9%83%D9%87%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D9%87%20%D9%84%D9%84%D8%B9%D9%85%D8%A7%D9%84%D9%87%20%D8%A7%D9%84%D8%A7%D9%86%D8%AF%D9%88%D8%AA%D8%B3%D9%8A%D9%87%20%D9%84%D8%A7%D9%86%D8%B3%D8%AA%D9%82%D8%A8%D9%84%20%D8%B9%D9%85%D8%A7%D9%84%D9%87%20%D9%85%D9%86%20%D8%A8%D9%84%D8%AF%20%D8%A7%D8%AE%D8%B1%20%D9%88%D9%84%D8%A7%20%D9%86%D8%B3%D8%AA%D9%82%D8%AF%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B2%D9%84%20%D8%A7%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D9%87%20%D9%85%D9%86%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D8%A7" 
-                                   onclick="return gtag_report_conversion(this.href)" 
-                                   target="_blank" 
+                                   onclick="return gtag_report_conversion(this.href, 'whatsapp_hero')"
+                                   target="_blank"
                                    rel="noopener noreferrer"
                                    class="btn-hero btn-primary-hero">
                                     <i class="icon-bubbles" aria-hidden="true"></i>
                                     تواصل معنا الآن
                                 </a>
-                                <a href="#partners" data-nav-section="partners" class="btn-hero btn-secondary-hero">
+                                <a href="#partners"
+                                   data-nav-section="partners"
+                                   onclick="gtag_report_conversion(null, 'view_partners')"
+                                   class="btn-hero btn-secondary-hero">
                                     <i class="icon-list" aria-hidden="true"></i>
                                     عرض شركائنا
                                 </a>
@@ -194,11 +208,11 @@
                             
                             <!-- Contact Info -->
                             <div class="hero-contact to-animate">
-                                <a href="tel:+62818962223" class="contact-item">
+                                <a href="tel:+62818962223" onclick="return gtag_report_conversion(this.href, 'phone_hero')" class="contact-item">
                                     <i class="icon-phone" aria-hidden="true"></i>
                                     <span dir="ltr">+62 818 962 223</span>
                                 </a>
-                                <a href="mailto:baselfawzy566@hotmail.com" class="contact-item">
+                                <a href="mailto:baselfawzy566@hotmail.com" onclick="return gtag_report_conversion(this.href, 'email_hero')" class="contact-item">
                                     <i class="icon-envelope" aria-hidden="true"></i>
                                     <span>baselfawzy566@hotmail.com</span>
                                 </a>
@@ -446,8 +460,8 @@
                                 </div>
                                 <h3>Kantor Utama</h3>
                                 <h4>المكتب الرئيسي</h4>
-                                <a href="tel:+6287885351491" class="phone-number">+62 878-8535-1491</a>
-                                <a href="https://wa.me/6287885351491" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                                <a href="tel:+6287885351491" onclick="return gtag_report_conversion(this.href, 'phone_office')" class="phone-number">+62 878-8535-1491</a>
+                                <a href="https://wa.me/6287885351491" onclick="return gtag_report_conversion(this.href, 'whatsapp_office')" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
                                     <i class="icon-bubbles"></i> WhatsApp
                                 </a>
                             </div>
@@ -458,8 +472,8 @@
                                 </div>
                                 <h3>Departemen Visa</h3>
                                 <h4>قسم التأشيرات</h4>
-                                <a href="tel:+6281802888543" class="phone-number">+62 818-0288-8543</a>
-                                <a href="https://wa.me/6281802888543" onclick="return gtag_report_conversion(this.href)" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                                <a href="tel:+6281802888543" onclick="return gtag_report_conversion(this.href, 'phone_visa')" class="phone-number">+62 818-0288-8543</a>
+                                <a href="https://wa.me/6281802888543" onclick="return gtag_report_conversion(this.href, 'whatsapp_visa')" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
                                     <i class="icon-bubbles"></i> WhatsApp
                                 </a>
                             </div>
@@ -489,14 +503,14 @@
                     <h3 class="section-title">عنوانا</h3>
                     <ul class="contact-info">
                         <li><i class="icon-map-marker"></i>جالن كامبوجا 33 حليم جاكرتا تيمور</li>
-                        <li><i class="icon-phone"></i><a href="tel:+62818962223">+62818962223</a></li>
-                        <li><i class="icon-envelope"></i><a href="mailto:baselfawzy566@hotmail.com">baselfawzy566@hotmail.com</a></li>
+                        <li><i class="icon-phone"></i><a href="tel:+62818962223" onclick="return gtag_report_conversion(this.href, 'phone_footer')">+62818962223</a></li>
+                        <li><i class="icon-envelope"></i><a href="mailto:baselfawzy566@hotmail.com" onclick="return gtag_report_conversion(this.href, 'email_footer')">baselfawzy566@hotmail.com</a></li>
                     </ul>
                     <h3 class="section-title">اتصل بنا</h3>
                     <ul class="social-media">
-                        <li><a href="https://www.facebook.com/amalindolanggeng/" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك"><i class="icon-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.instagram.com/amalindolanggeng/" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام"><i class="icon-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="http://twitter.com/amalindolangg" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على تويتر"><i class="icon-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/amalindolanggeng/" onclick="return gtag_report_conversion(this.href, 'social_facebook')" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك"><i class="icon-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/amalindolanggeng/" onclick="return gtag_report_conversion(this.href, 'social_instagram')" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام"><i class="icon-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="http://twitter.com/amalindolangg" onclick="return gtag_report_conversion(this.href, 'social_twitter')" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على تويتر"><i class="icon-twitter" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 
@@ -534,7 +548,7 @@
 
     <!-- Floating WhatsApp Button -->
     <a href="https://api.whatsapp.com/send/?phone=62818962223&text=%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A7%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%82%D8%AF%D8%A7%D9%85%20%D8%B9%D9%85%D8%A7%D9%84%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%86%D8%AF%D9%88%D9%86%D8%B3%D9%8A%D8%A7"
-       onclick="return gtag_report_conversion(this.href)"
+       onclick="return gtag_report_conversion(this.href, 'whatsapp_floating')"
        class="floating-whatsapp"
        target="_blank"
        rel="noopener noreferrer"
