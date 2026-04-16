@@ -16,10 +16,8 @@
 	    );
 	};
 
-	// Parallax
-	var parallax = function() {
-		$(window).stellar();
-	};
+	// Parallax (disabled - stellar.js is abandoned and unused here)
+	var parallax = function() { /* no-op */ };
 
 
 
@@ -79,24 +77,27 @@
 	// Page Nav
 	var clickMenu = function() {
 
-		$('#navbar a:not([class="external"])').click(function(event){
+		// Delegated handler - binds to body so it works even if other init throws.
+		// Only targets nav links with data-nav-section (not the WhatsApp CTA).
+		$('body').on('click', '#navbar a[data-nav-section]', function(event){
 			var section = $(this).data('nav-section'),
-				navbar = $('#navbar');
+				navbar = $('#navbar'),
+				target = $('[data-section="' + section + '"]');
 
-				if ( $('[data-section="' + section + '"]').length ) {
-			    	$('html, body').animate({
-			        	scrollTop: $('[data-section="' + section + '"]').offset().top - 55
-			    	}, 500);
-			   }
+			if ( target.length ) {
+				$('html, body').animate({
+					scrollTop: target.offset().top - 55
+				}, 500);
+			}
 
-		    if ( navbar.hasClass('in') || navbar.hasClass('show') ) {
-		    	navbar.removeClass('in show');
-		    	navbar.attr('aria-expanded', 'false');
-		    	$('.js-fh5co-nav-toggle').removeClass('active');
-		    }
+			if ( navbar.hasClass('in') || navbar.hasClass('show') ) {
+				navbar.removeClass('in show');
+				navbar.attr('aria-expanded', 'false');
+				$('.js-fh5co-nav-toggle').removeClass('active');
+			}
 
-		    event.preventDefault();
-		    return false;
+			event.preventDefault();
+			return false;
 		});
 
 
