@@ -74,27 +74,17 @@
         gtag('config', 'G-DDFZ3X5N7T');
         gtag('config', 'AW-866647301');
         
-        // Conversion tracking function
+        // Conversion tracking - fire-and-forget, never block navigation
         function gtag_report_conversion(url) {
-            var callback = function () {
-                if (typeof url !== 'undefined') {
-                    window.location.href = url;
-                }
-            };
-            
-            if (typeof gtag === 'function') {
-                try {
+            try {
+                if (typeof gtag === 'function') {
                     gtag('event', 'conversion', {
                         'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
-                        'event_callback': callback
+                        'transport_type': 'beacon'
                     });
-                } catch (e) {
-                    callback();
                 }
-            } else {
-                callback();
-            }
-            return false;
+            } catch (e) { /* ignore - never block click */ }
+            return true;
         }
     </script>
 
