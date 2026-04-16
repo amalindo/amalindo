@@ -1,12 +1,16 @@
 User-agent: *
-Disallow:
+Allow: /
 
-# Optional: allow crawling of common asset folders (usually allowed by default)
+# Allow search engine crawling of assets
 Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /img/
 Allow: /fonts/
 
+# Block backup/config files if any
+Disallow: /*.json$
+Disallow: /*.py$
+
 # Sitemap location
-Sitemap: https://amalindolanggeng.net/sitemap.xml
+Sitemap: https://amalindolanggeng.com/sitemap.xml
