@@ -48,10 +48,10 @@ section {
     /* Hero uses its own gradient */
 }
 
-/* Stats - Brand colored section (eye-catching) */
+/* Stats - Light surface (matches overall page rhythm) */
 .stats-section {
     margin-top: 0 !important;
-    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-dark) 100%) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%) !important;
 }
 
 /* Services - White background */
@@ -126,13 +126,11 @@ section {
     line-height: 1.7;
 }
 
-/* White section titles */
-.stats-section .section-heading h2,
+/* Footer-only white section titles (stats now on light bg, keep default dark) */
 #fh5co-footer .section-heading h2 {
     color: #fff;
 }
 
-.stats-section .section-heading h2::after,
 #fh5co-footer .section-heading h2::after {
     background: linear-gradient(90deg, #fff, rgba(255,255,255,0.3));
 }
@@ -141,15 +139,15 @@ section {
    Section Transitions - Smooth Visual Flow
    =========================================== */
 
-/* Curved separator between hero and stats */
+/* Curved separator between hero and stats - subtle white wave into light stats */
 #fh5co-home::after {
     content: '';
     position: absolute;
     bottom: -1px;
     left: 0;
     right: 0;
-    height: 80px;
-    background: var(--brand-primary);
+    height: 60px;
+    background: #ffffff;
     clip-path: ellipse(70% 100% at 50% 100%);
     z-index: 5;
 }
@@ -2660,37 +2658,53 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.14), rgba(27, 94, 32, 0.14));
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.14), rgba(27, 94, 32, 0.14)) !important;
     color: var(--amln-primary-600);
     font-size: 26px;
 }
 
-.stat-number {
+.stats-section .stat-icon i,
+#fh5co-stats .stat-icon i {
+    color: var(--amln-primary-600) !important;
+    font-size: 26px;
+}
+
+.stats-section .stat-number,
+#fh5co-stats .stat-number {
     font-family: "Cairo", "Tajawal", sans-serif;
     font-weight: 800;
     font-size: clamp(1.9rem, 3vw, 2.6rem);
-    color: var(--amln-ink);
+    color: var(--amln-ink) !important;
     line-height: 1.1;
 }
 
-.stat-label {
-    color: var(--amln-muted);
+.stats-section .stat-label,
+#fh5co-stats .stat-label {
+    color: var(--amln-muted) !important;
     font-weight: 600;
     font-size: 0.95rem;
     margin-top: 6px;
 }
 
-.license-badge {
+.stats-section .license-badge,
+#fh5co-stats .license-badge {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 12px 22px;
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(27, 94, 32, 0.08));
-    border: 1px solid rgba(37, 211, 102, 0.25);
-    color: var(--amln-primary);
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(27, 94, 32, 0.08)) !important;
+    border: 1px solid rgba(37, 211, 102, 0.25) !important;
+    color: var(--amln-primary) !important;
     font-weight: 600;
     margin-top: 28px;
+}
+
+.stats-section .license-badge i,
+#fh5co-stats .license-badge i,
+.stats-section .license-badge strong,
+#fh5co-stats .license-badge strong {
+    color: var(--amln-primary) !important;
 }
 
 /* Service cards polish */
