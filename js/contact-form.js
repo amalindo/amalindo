@@ -104,9 +104,12 @@ class ContactForm {
             return;
         }
 
-        // Fire Google Ads conversion + GA4 event for successful form submission
+        // Fire Enhanced Conversion for successful form submission.
+        // Sends SHA-256 hashed user_data (email, name) for +15-35% Ads match rate.
         try {
-            if (typeof gtag_report_conversion === 'function') {
+            if (typeof gtag_enhanced_form_conversion === 'function') {
+                gtag_enhanced_form_conversion(this.emailInput.value, this.nameInput.value, '');
+            } else if (typeof gtag_report_conversion === 'function') {
                 gtag_report_conversion(null, 'contact_form_submit');
             }
         } catch (err) { /* never block submit */ }

@@ -13,13 +13,30 @@
     <meta name="language" content="arabic">
     <meta name="author" content="شركة أمالندو لانقق">
 
-    <!-- Facebook and Twitter integration -->
+    <!-- Canonical: consolidate .com + .net duplicate content into single primary -->
+    <link rel="canonical" href="https://amalindolanggeng.com/">
+    <link rel="alternate" hreflang="ar" href="https://amalindolanggeng.com/">
+    <link rel="alternate" hreflang="ar-SA" href="https://amalindolanggeng.com/">
+    <link rel="alternate" hreflang="x-default" href="https://amalindolanggeng.com/">
+
+    <!-- Open Graph / social card -->
     <meta property="og:title" content="أمالندو لانقق توريد عمالة الفنية الاندونسية إلي السعودية ودول الخليج">
     <meta property="og:site_name" content="امالندو لانقق">
     <meta property="og:url" content="https://amalindolanggeng.com">
     <meta property="og:description" content="شركة أمالندو لانقق لتوريد العمالة الفنية و العادية الإندونيسية إلى المملكة العربية السعودية دول الخليج متخصصون فى الرجالية بجميع أنواعها وحيث أننا نقوم بتدريب للعمل في الفنادق المطاعم كذالك أعطاء دورات تدريبية التخصصات العادات لتقاليد اللغة * الخاصة بشركات المقاولات يتم إختبارهم عمليا عرض الإختبار على الشركات خبرة أربع ثلاثون عاما توريد حيث نعمل منذ عام 1980 رقم ترخصنا السفارة 12">
     <meta property="og:type" content="business.business">
-    <meta property="og:image" content="https://amalindolanggeng.com/favicon.ico">
+    <meta property="og:image" content="https://amalindolanggeng.com/images/mainIcon.png">
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:locale:alternate" content="ar_AE">
+    <meta property="og:locale:alternate" content="ar_KW">
+    <meta property="og:locale:alternate" content="ar_QA">
+    <meta property="og:locale:alternate" content="ar_BH">
+    <meta property="og:locale:alternate" content="ar_OM">
+    <meta property="og:locale:alternate" content="id_ID">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أمالندو لانقق - استقدام العمالة الإندونيسية">
+    <meta name="twitter:description" content="شركة أمالندو لانقق لتوريد العمالة الفنية و العادية الإندونيسية إلى المملكة العربية السعودية و دول الخليج منذ 1980">
+    <meta name="twitter:image" content="https://amalindolanggeng.com/images/mainIcon.png">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -65,26 +82,60 @@
         })(window, document, "clarity", "script", "v01pdw8sw8");
     </script>
 
-    <!-- Google Analytics (GA4) & Google Ads (consolidated) -->
+    <!-- Google Analytics (GA4) & Google Ads - consent mode v2 + enhanced conversions ready -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDFZ3X5N7T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+
+        // Consent Mode v2 defaults (audience is KSA/Gulf/Indonesia; granted by default).
+        // Swap to 'denied' here if you later add an EU cookie banner.
+        gtag('consent', 'default', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted',
+            'functionality_storage': 'granted',
+            'personalization_storage': 'granted',
+            'security_storage': 'granted',
+            'wait_for_update': 500
+        });
+
         gtag('js', new Date());
-        gtag('config', 'G-DDFZ3X5N7T');
-        gtag('config', 'AW-866647301');
-        
-        // Conversion tracking - fire-and-forget, never block navigation.
+        // GA4 (with conversion linker to preserve gclid cross-page)
+        gtag('config', 'G-DDFZ3X5N7T', {
+            'anonymize_ip': false,
+            'allow_google_signals': true,
+            'allow_ad_personalization_signals': true
+        });
+        // Google Ads (conversion linker captures gclid from landing URL)
+        gtag('config', 'AW-866647301', {
+            'conversion_linker': true,
+            'allow_enhanced_conversions': true
+        });
+
+        // De-dupe window: ignore repeat fires within 2s per label
+        var __amlnLastFire = {};
+
+        // Conversion tracking - fire-and-forget, never blocks navigation.
         // `label` is an optional CTA identifier used for segmentation in GA4.
         function gtag_report_conversion(url, label) {
+            var key = label || 'generic';
+            var now = Date.now();
+            if (__amlnLastFire[key] && (now - __amlnLastFire[key]) < 2000) {
+                return true; // allow nav, skip duplicate tracking
+            }
+            __amlnLastFire[key] = now;
             try {
                 if (typeof gtag === 'function') {
-                    // Google Ads conversion (main contact intent)
+                    // Google Ads conversion (main contact intent) with value for Smart Bidding
                     gtag('event', 'conversion', {
                         'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
+                        'value': 1.0,
+                        'currency': 'USD',
                         'transport_type': 'beacon'
                     });
-                    // GA4 event with label (can be imported as extra Ads conversions later)
+                    // GA4 event with label (import later as extra Ads conversions per CTA)
                     if (label) {
                         gtag('event', 'cta_click', {
                             'event_category': 'engagement',
@@ -97,6 +148,145 @@
             } catch (e) { /* ignore - never block click */ }
             return true;
         }
+
+        // Enhanced Conversions: hash user_data and fire a high-value form-submit conversion.
+        // Turn on Enhanced Conversions in Google Ads UI (Conversions -> action -> EC -> Google tag)
+        // to unlock the +15-35% match-rate improvement.
+        async function gtag_enhanced_form_conversion(email, fullName, phone) {
+            async function sha256(str) {
+                if (!str) return undefined;
+                var data = new TextEncoder().encode(str.trim().toLowerCase());
+                var buf = await crypto.subtle.digest('SHA-256', data);
+                return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+            }
+            try {
+                var user_data = {};
+                if (email) user_data.sha256_email_address = await sha256(email);
+                if (fullName) {
+                    var parts = fullName.trim().split(/\s+/);
+                    user_data.sha256_first_name = await sha256(parts[0]);
+                    if (parts.length > 1) user_data.sha256_last_name = await sha256(parts.slice(1).join(' '));
+                }
+                if (phone) user_data.sha256_phone_number = await sha256('+' + phone.replace(/\D/g,''));
+
+                if (typeof gtag === 'function') {
+                    gtag('set', 'user_data', user_data);
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-866647301/ONrzCPDT3NEZEIX6n50D',
+                        'value': 10.0,
+                        'currency': 'USD',
+                        'transport_type': 'beacon'
+                    });
+                    gtag('event', 'cta_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'contact_form_submit',
+                        'cta_type': 'contact_form_submit',
+                        'transport_type': 'beacon'
+                    });
+                }
+            } catch (e) { /* never block form */ }
+        }
+    </script>
+
+    <!-- Meta robots - give Google maximum flexibility -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="geo.region" content="ID-JK">
+    <meta name="geo.placename" content="Jakarta">
+    <meta name="geo.position" content="-6.266;106.890">
+    <meta name="ICBM" content="-6.266, 106.890">
+
+    <!-- Structured data: EmploymentAgency (schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "EmploymentAgency", "LocalBusiness"],
+          "@id": "https://amalindolanggeng.com/#organization",
+          "name": "شركة أمالندو لانقق",
+          "alternateName": ["Amalindo Langgeng", "PT Amalindo Langgeng"],
+          "url": "https://amalindolanggeng.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amalindolanggeng.com/images/mainIcon.png",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://amalindolanggeng.com/images/mainIcon.png",
+          "description": "شركة أمالندو لانقق لتوريد العمالة الفنية والعادية الإندونيسية إلى المملكة العربية السعودية ودول الخليج، متخصصون في العمالة الرجالية للفنادق والمطاعم والمجال الطبي والمقاولات منذ 1980.",
+          "foundingDate": "1980",
+          "telephone": "+62-818-962-223",
+          "email": "baselfawzy566@hotmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Kamboja 33, Halim Perdana Kusuma",
+            "addressLocality": "Jakarta Timur",
+            "addressRegion": "DKI Jakarta",
+            "postalCode": "13610",
+            "addressCountry": "ID"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -6.266,
+            "longitude": 106.890
+          },
+          "areaServed": [
+            {"@type": "Country", "name": "Saudi Arabia"},
+            {"@type": "Country", "name": "United Arab Emirates"},
+            {"@type": "Country", "name": "Kuwait"},
+            {"@type": "Country", "name": "Qatar"},
+            {"@type": "Country", "name": "Bahrain"},
+            {"@type": "Country", "name": "Oman"}
+          ],
+          "sameAs": [
+            "https://www.facebook.com/amalindolanggeng/",
+            "https://www.instagram.com/amalindolanggeng/",
+            "https://x.com/amalindolangg"
+          ],
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "ترخيص السفارة السعودية رقم 12"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "خدمات استقدام العمالة الإندونيسية",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "استقدام عمالة قطاع الفنادق", "description": "عمالة مدربة للعمل في الفنادق والشقق المفروشة"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "استقدام عمالة قطاع المطاعم", "description": "طباخين وباريستا ومقدمي طعام محترفين"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "استقدام عمالة القطاع الطبي", "description": "أطباء وممرضين وعاملين في المجال الصحي"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "استقدام عمالة قطاع المقاولات", "description": "عمالة فنية مختبرة لشركات المقاولات"}},
+              {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "التدريب والتأهيل", "description": "دورات تدريبية في اللغة والعادات والتقاليد"}}
+            ]
+          },
+          "knowsLanguage": ["ar", "id", "en"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://amalindolanggeng.com/#website",
+          "url": "https://amalindolanggeng.com/",
+          "name": "أمالندو لانقق - استقدام العمالة الإندونيسية",
+          "inLanguage": "ar",
+          "publisher": {"@id": "https://amalindolanggeng.com/#organization"},
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://amalindolanggeng.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://amalindolanggeng.com/#webpage",
+          "url": "https://amalindolanggeng.com/",
+          "name": "أمالندو لانقق — استقدام العمالة الإندونيسية للسعودية ودول الخليج",
+          "isPartOf": {"@id": "https://amalindolanggeng.com/#website"},
+          "about": {"@id": "https://amalindolanggeng.com/#organization"},
+          "inLanguage": "ar",
+          "primaryImageOfPage": "https://amalindolanggeng.com/images/mainIcon.png"
+        }
+      ]
+    }
     </script>
 
 </head>
@@ -510,7 +700,9 @@
                     <ul class="social-media">
                         <li><a href="https://www.facebook.com/amalindolanggeng/" onclick="return gtag_report_conversion(this.href, 'social_facebook')" class="facebook" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على فيسبوك"><i class="icon-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="https://www.instagram.com/amalindolanggeng/" onclick="return gtag_report_conversion(this.href, 'social_instagram')" class="instagram" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على انستغرام"><i class="icon-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="http://twitter.com/amalindolangg" onclick="return gtag_report_conversion(this.href, 'social_twitter')" class="twitter" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على تويتر"><i class="icon-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://x.com/amalindolangg" onclick="return gtag_report_conversion(this.href, 'social_x')" class="twitter x-social" target="_blank" rel="noopener noreferrer" aria-label="صفحتنا على X (تويتر سابقاً)">
+                          <svg class="x-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a></li>
                     </ul>
                 </div>
                 
