@@ -1,4 +1,16 @@
 const gallerySlides = [
+    // Instagram - latest client placements, training & departures (2026)
+    { src: "images/instagram/amalindo-ig-medical-staff-work.webp", alt: "كادر تمريضي إندونيسي مؤهل أثناء العمل في مجمع طبي سعودي" },
+    { src: "images/instagram/amalindo-ig-nurses-hospital.webp", alt: "ممرضات أمالندو أثناء العمل في مجمع طبي بالمملكة العربية السعودية" },
+    { src: "images/instagram/amalindo-ig-medical-complex-jazan.webp", alt: "كادر تمريضي إندونيسي في مجمع طبي بجازان" },
+    { src: "images/instagram/amalindo-ig-client-meeting.webp", alt: "لقاء أمالندو مع أحد عملائها من الشركات السعودية" },
+    { src: "images/instagram/amalindo-ig-training-certificates.webp", alt: "تأهيل وتخريج العمالة الإندونيسية قبل السفر للسعودية" },
+    { src: "images/instagram/amalindo-ig-hospitality-dispatch.webp", alt: "مغادرة عمالة ضيافة ومطاعم إندونيسية مدربة إلى السعودية" },
+    { src: "images/instagram/amalindo-ig-makkah-hospitality.webp", alt: "عمالة فندقية إندونيسية لخدمة ضيوف الحرم في مكة المكرمة" },
+    { src: "images/instagram/amalindo-ig-nurses-qassim.webp", alt: "مغادرة ممرضات إندونيسيات لمجمع طبي في القصيم" },
+    { src: "images/instagram/amalindo-ig-nursing-specialists.webp", alt: "مغادرة أخصائيات تمريض إندونيسيات لمستشفى بالسعودية" },
+    { src: "images/instagram/amalindo-ig-salon-staff-qassim.webp", alt: "مغادرة عاملات إندونيسيات لمنشأة نسائية في القصيم" },
+
     // New Images - 29/01/2026
     {
         src: "images/29_01_2026/WhatsApp Image 2026-01-29 at 7.10.38 PM.webp",
