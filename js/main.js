@@ -765,15 +765,22 @@
 
 	// Initialize DataTables with inline data from table-config.js
 	$(document).ready(function(){
-		// Static <tbody> rows are SSR'd for SEO/crawlers; clear them, then DataTables builds the interactive paginated/searchable table from tableData.
 		if (typeof tableData !== 'undefined' && tableData.length > 0) {
-			$('#myTable tbody').empty();
 			$('#myTable').DataTable({
 				"data": tableData,
 				"columns": [
-					{ "data": "place", "className": "text-right" },
-					{ "data": "name", "className": "text-right" },
-					{ "data": "type", "className": "text-right" }
+					{ 
+						"data": "place",
+						"className": "text-right"
+					},
+					{ 
+						"data": "name",
+						"className": "text-right"
+					},
+					{ 
+						"data": "type",
+						"className": "text-right"
+					}
 				],
 				"pageLength": 10,
 				"lengthMenu": [10, 25, 50],
